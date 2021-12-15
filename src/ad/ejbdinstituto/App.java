@@ -4,13 +4,20 @@
  * and open the template in the editor.
  */
 package ad.ejbdinstituto;
+import java.sql.*;
 
 /**
  *
  * @author a20armandocb
  */
-public class Config {
-    private final String  DB_URL = "jdbc:mysql://localhost:3307/";
-    private final String  DB_USER = "root";
-    private final String  DB_USER_PWD = "usbw";
+public class App {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        CrearEstructuraBD estructura = new CrearEstructuraBD();
+    }
+    
 }

@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class CrearEstructuraBD {
 
     private ArrayList<String> sqlArray = new ArrayList<String>();
-    private Statement satement;
+    private Statement statement;
 
     public CrearEstructuraBD() {
-        this.satement = ConexionBD.getStatement();
+        this.statement = ConexionBD.getStatement();
         tablaProfesores();
         tablaAlumnos();
         tablaAsignaturas();
@@ -48,13 +48,15 @@ public class CrearEstructuraBD {
     private void tablaAlumnos() {
         sqlArray.add("CREATE TABLE IF NOT EXISTS alumnos "
                 + "(id_alumno INT(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,"
-                + "cod_alumno VARCHAR(4) NOT NULL ,"
+                + "cod_alumno VARCHAR(4) NOT NULL UNIQUE ,"
                 + "nombre VARCHAR(50) NOT NULL,"
                 + "PRIMARY KEY (id_alumno),"
-                + "SECONDARY KEY (cod_alumno),"
-                + "CHECK (codalumno LIKE '...[A-Z]');"
+                //  + "SECONDARY KEY (cod_alumno)"
+                + "CHECK (codalumno LIKE '...[A-Z]')"
                 + ");");
-
+//https://dev.mysql.com/doc/refman/5.6/en/create-table-foreign-keys.html
+        
+        
 //        sqlArray.add("ALTER TABLE profesores "
 //                + "add constraint validar_codalumno "
 //                + "check (codalumno LIKE '...[A-Z]');");
@@ -66,8 +68,8 @@ public class CrearEstructuraBD {
                 + "cod_asignatura VARCHAR (4) NOT NULL ,"
                 + "ciclo VARCHAR(50) NOT NULL,"
                 + "PRIMARY KEY (id_asignatura),"
-                + "SECONDARY KEY (cod_asignatura),"
-                + "CHECK (cod_asignatura LIKE '...[A-Z]');"
+             //   + "SECONDARY KEY (cod_asignatura),"
+                + "CHECK (cod_asignatura LIKE '...[A-Z]')"
                 + ");");
     }
 
@@ -84,20 +86,21 @@ public class CrearEstructuraBD {
         sqlArray.add("CREATE TABLE IF NOT EXISTS notas "
                 + "(id_alumno INT(4) UNSIGNED ZEROFILL NOT NULL,"
                 + "id_asignatura INT(4) UNSIGNED ZEROFILL NOT NULL,"
-                + "fecha DATE NOT NULL DEFAULT CURRENT_DATE,"
+                + "fecha DATE NOT NULL,"
                 + "nota FLOAT UNSIGNED ZEROFILL NOT NULL,"
                 + "PRIMARY KEY (id_asignatura, id_alumno, fecha)"
                 + ");");
     }
 
     private void build() {
-        try {
-            for (String sql : sqlArray) {
-                satement.execute(sql);
+        for (String sql : sqlArray) {
+            try {
+                statement.execute(sql);
+            } catch (SQLException e) {
+                System.out.println("Error: " + e.getMessage());
+                System.out.println("Statement:\n " + sql);
+                System.exit(0);
             }
-        } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
-            System.exit(0);
         }
     }
 }

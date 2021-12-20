@@ -51,10 +51,11 @@ public class CrearEstructuraBD {
                 + "cod_alumno VARCHAR(4) NOT NULL UNIQUE ,"
                 + "nombre VARCHAR(50) NOT NULL,"
                 + "PRIMARY KEY (id_alumno),"
-                //  + "SECONDARY KEY (cod_alumno)"
+                + "UNIQUE (cod_alumno),"
                 + "CHECK (codalumno LIKE '...[A-Z]')"
                 + ");");
 //https://dev.mysql.com/doc/refman/5.6/en/create-table-foreign-keys.html
+//https://www.educba.com/alternate-key-in-sql/
         
         
 //        sqlArray.add("ALTER TABLE profesores "
@@ -68,7 +69,7 @@ public class CrearEstructuraBD {
                 + "cod_asignatura VARCHAR (4) NOT NULL ,"
                 + "ciclo VARCHAR(50) NOT NULL,"
                 + "PRIMARY KEY (id_asignatura),"
-             //   + "SECONDARY KEY (cod_asignatura),"
+                + "UNIQUE (cod_asignatura),"
                 + "CHECK (cod_asignatura LIKE '...[A-Z]')"
                 + ");");
     }

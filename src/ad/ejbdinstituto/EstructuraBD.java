@@ -12,19 +12,18 @@ import java.util.ArrayList;
  *
  * @author a20armandocb
  */
-public class CrearEstructuraBD {
+public class EstructuraBD {
 
     private ArrayList<String> sqlArray = new ArrayList<String>();
     private Statement statement;
 
-    public CrearEstructuraBD() {
+    public EstructuraBD() {
         this.statement = ConexionBD.getStatement();
         tablaProfesores();
         tablaAlumnos();
         tablaAsignaturas();
         tablaNotas();
         tablasInterrelaciones();
-        build();
     }
 
     /**
@@ -56,8 +55,7 @@ public class CrearEstructuraBD {
                 + ");");
 //https://dev.mysql.com/doc/refman/5.6/en/create-table-foreign-keys.html
 //https://www.educba.com/alternate-key-in-sql/
-        
-        
+
 //        sqlArray.add("ALTER TABLE profesores "
 //                + "add constraint validar_codalumno "
 //                + "check (codalumno LIKE '...[A-Z]');");
@@ -93,7 +91,7 @@ public class CrearEstructuraBD {
                 + ");");
     }
 
-    private void build() {
+    public void build() {
         for (String sql : sqlArray) {
             try {
                 statement.execute(sql);
@@ -102,6 +100,17 @@ public class CrearEstructuraBD {
                 System.out.println("Statement:\n " + sql);
                 System.exit(0);
             }
+        }
+    }
+
+    public void borrarBd() {
+        String sql = "DROP DATABASE bdInstituto ";
+        try {
+            statement.execute(sql);
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Statement:\n " + sql);
+            System.exit(0);
         }
     }
 }

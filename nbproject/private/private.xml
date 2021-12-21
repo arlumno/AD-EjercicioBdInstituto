@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Z:/ArGit/AD/AD-EjBdInstituto/src/ad/ejbdinstituto/CrearEstructuraBD.java</file>
+            <file>file:/Z:/ArGit/AD/AD-EjBdInstituto/src/ad/ejbdinstituto/ConexionBD.java</file>
+            <file>file:/Z:/ArGit/AD/AD-EjBdInstituto/src/ad/ejbdinstituto/Gestor.java</file>
+            <file>file:/Z:/ArGit/AD/AD-EjBdInstituto/src/ad/ejbdinstituto/EstructuraBD.java</file>
             <file>file:/Z:/ArGit/AD/AD-EjBdInstituto/src/ad/ejbdinstituto/App.java</file>
         </group>
     </open-files>

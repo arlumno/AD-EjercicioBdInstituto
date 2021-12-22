@@ -95,6 +95,7 @@ public class EstructuraBD {
         for (String sql : sqlArray) {
             try {
                 statement.execute(sql);
+                utilidades.Log.getInstance().addToLog("Creada base da datos");
             } catch (SQLException e) {
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Statement:\n " + sql);
@@ -107,6 +108,8 @@ public class EstructuraBD {
         String sql = "DROP DATABASE bdInstituto ";
         try {
             statement.execute(sql);
+            utilidades.Log.getInstance().addToLog("Eliminada base da datos");
+
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
             System.out.println("Statement:\n " + sql);

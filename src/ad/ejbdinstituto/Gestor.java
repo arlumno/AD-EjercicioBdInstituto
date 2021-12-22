@@ -5,11 +5,18 @@
  */
 package ad.ejbdinstituto;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author a20armandocb
  */
 public class Gestor {
+
+    public Gestor() {
+        
+    }
     
     public void crearBD(){
         EstructuraBD estructura = new EstructuraBD();
@@ -30,5 +37,12 @@ public class Gestor {
         }else{
             peticiones.SalidasGui.mensaje("Operación Cancelada");
         }
+    }
+    public void verLog(){
+        peticiones.SalidasGui.bloqueTexto(utilidades.Log.getInstance().getLog());
+    }
+    public void borrarLog(){
+        utilidades.Log.getInstance().borrarLog();
+        peticiones.SalidasGui.mensaje("Log Borrado");
     }
 }

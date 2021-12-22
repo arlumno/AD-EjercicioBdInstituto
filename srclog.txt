@@ -1,0 +1,16 @@
+[22-12-2021 13:38:25] Aplicación iniciada
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:27] Creada base da datos
+[22-12-2021 13:38:53] Aplicación iniciada
+[22-12-2021 13:39:03] Creada base da datos
+[22-12-2021 13:39:03] Creada base da datos
+[22-12-2021 13:39:03] Creada base da datos
+[22-12-2021 13:39:03] Creada base da datos
+[22-12-2021 13:39:03] Creada base da datos
+[22-12-2021 13:39:03] Creada base da datos
+[22-12-2021 13:39:03] Creada base da datos

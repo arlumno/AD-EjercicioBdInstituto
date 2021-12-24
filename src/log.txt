@@ -1,1 +1,25 @@
 [22-12-2021 14:57:08] Aplicación finalizada
+[24-12-2021 14:45:21] Aplicación iniciada
+[24-12-2021 14:46:40] Aplicación iniciada
+[24-12-2021 14:47:03] Aplicación finalizada
+[24-12-2021 14:47:05] Aplicación iniciada
+[24-12-2021 14:50:00] Aplicación finalizada
+[24-12-2021 14:50:01] Aplicación iniciada
+[24-12-2021 14:50:32] Aplicación finalizada
+[24-12-2021 14:50:33] Aplicación iniciada
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:20] Creada base da datos
+[24-12-2021 14:51:55] Aplicación finalizada
+[24-12-2021 14:52:23] Aplicación iniciada
+[24-12-2021 14:53:56] Aplicación finalizada
+[24-12-2021 14:53:57] Aplicación iniciada
+[24-12-2021 14:56:34] Aplicación finalizada
+[24-12-2021 14:56:37] Aplicación iniciada
+[24-12-2021 14:56:48] Aplicación finalizada
+[24-12-2021 14:57:28] Aplicación iniciada
+[24-12-2021 14:57:50] Aplicación finalizada

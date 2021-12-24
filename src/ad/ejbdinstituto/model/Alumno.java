@@ -19,7 +19,12 @@ public class Alumno {
         this.codigo = codigo;
         this.nombre = nombre;
     }
-
+    
+    public Alumno(String codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+    }
+     
     public int getId() {
         return id;
     }

@@ -49,6 +49,7 @@ public class App {
         
         menu.addOpcion("Crear Base de Datos", ()-> { gestor.crearBD();});
         menu.addOpcion("ELIMINAR Base de Datos", ()-> { gestor.borrarBD();});
+        menu.addOpcion("Alta Alumno", ()-> { gestor.altaAlumno();});
         menu.addOpcion("Ver Log", ()-> { gestor.verLog();});
         menu.addOpcion("Borrar Log", ()-> { gestor.borrarLog();});
         

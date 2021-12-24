@@ -5,8 +5,8 @@
  */
 package ad.ejbdinstituto;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import ad.ejbdinstituto.DAO.AlumnoDaoImp;
+import ad.ejbdinstituto.model.Alumno;
 
 /**
  *
@@ -44,5 +44,9 @@ public class Gestor {
     public void borrarLog(){
         utilidades.Log.getInstance().borrarLog();
         peticiones.SalidasGui.mensaje("Log Borrado");
+    }
+    public void altaAlumno(){
+       AlumnoDaoImp alumnoDaoImp = new AlumnoDaoImp();
+       alumnoDaoImp.create(new Alumno("123Z","Armando"));
     }
 }

@@ -17,6 +17,7 @@ public class ConexionBD {
     private static final String DB_URL = "jdbc:mysql://localhost:3307/";
     private static final String DB_USER = "root";
     private static final String DB_USER_PWD = "usbw";
+    private static final String DB_NAME = "bdInstituto";
     private static Connection conexion;
     private static Statement statement;
 
@@ -41,6 +42,7 @@ public class ConexionBD {
             //conexion = DriverManager.getConnection(DB_URL, DB_USER, DB_USER_PWD);
             conexion = DriverManager.getConnection(DB_URL, propiedades);
             statement = conexion.createStatement();
+            executeSql("USE " +  DB_NAME);
         } catch (SQLException e) {
             System.out.println("Error al realizar la conexión.");
             System.out.println(e.toString());
@@ -48,5 +50,24 @@ public class ConexionBD {
         }
 
     }
-
+    
+    public static boolean executeSql(String sql, String log){
+        boolean resultado = true;
+        try {
+            getStatement().execute(sql);
+            if(log != ""){
+                utilidades.Log.getInstance().addToLog(log);                
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Statement:\n " + sql);            
+            resultado = false;
+        }
+        return resultado;
+    }
+    
+    public static boolean executeSql(String sql){
+        return executeSql(sql,"");
+    }
+    
 }

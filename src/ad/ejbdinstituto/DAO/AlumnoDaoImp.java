@@ -24,12 +24,17 @@ public class AlumnoDaoImp implements IDaoCrud<Alumno>{
     }
 
     @Override
-    public List<Alumno> read(Alumno alumno) {
-        List<Alumno> listado = null;
+    public Alumno read(String id) {
+        Alumno alumno = null;
         
-        return listado;
+        return alumno;
     }
 
+    @Override
+    public List<Alumno> readAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public boolean update(Alumno alumno) {
                 boolean resultado = false;

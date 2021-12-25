@@ -20,9 +20,16 @@ public class ProfesorDaoImp implements IDaoCrud<Profesor> {
     }
 
     @Override
-    public List<Profesor> read(Profesor t) {
+    public Profesor read(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Profesor> readAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 
     @Override
     public boolean update(Profesor t) {

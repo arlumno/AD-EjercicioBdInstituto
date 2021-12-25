@@ -20,9 +20,15 @@ public class AsignaturaDaoImp implements IDaoCrud<Asignatura> {
     }
 
     @Override
-    public List<Asignatura> read(Asignatura t) {
+    public Asignatura read(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Asignatura> readAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     @Override
     public boolean update(Asignatura t) {

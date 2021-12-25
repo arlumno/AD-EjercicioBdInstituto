@@ -37,8 +37,7 @@ public class App {
                 System.out.println("Error: " + e);
             }
         } while (continuar);
-        utilidades.Log.getInstance().addToLog("Aplicación finalizada");
-        
+        utilidades.Log.getInstance().addToLog("Aplicación finalizada");     
     }
     
     private static Menu construirMenuPrincipal() {

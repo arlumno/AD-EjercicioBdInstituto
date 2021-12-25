@@ -20,9 +20,16 @@ public class MatriculacionDaoImp implements IDaoCrud<Matriculacion>{
     }
 
     @Override
-    public List<Matriculacion> read(Matriculacion t) {
+    public Matriculacion read(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Matriculacion> readAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     @Override
     public boolean update(Matriculacion t) {

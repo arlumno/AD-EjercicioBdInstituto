@@ -20,10 +20,17 @@ public class NotaDaoImp implements IDaoCrud<Nota>{
     }
 
     @Override
-    public List<Nota> read(Nota t) {
+    public Nota read(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<Nota> readAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
     @Override
     public boolean update(Nota t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

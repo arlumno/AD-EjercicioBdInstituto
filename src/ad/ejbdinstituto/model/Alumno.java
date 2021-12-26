@@ -13,6 +13,10 @@ import ad.ejbdinstituto.Exceptions.InvalidDataException;
  */
 public class Alumno {
     public static int MAX_SIZE_NOMBRE = 50; 
+    public static int MIN_SIZE_NOMBRE = 3; 
+    public static int MAX_SIZE_CODIGO = 4; 
+    public static int MIN_SIZE_CODIGO = 4; 
+    
     private int id;
     private String codigo;
     private String nombre;
@@ -30,7 +34,7 @@ public class Alumno {
     }
      
     private void  validateCodigo(String codigo) throws InvalidDataException{
-        if(codigo.length() != 4){
+        if(!utilidades.Utils.validarString(codigo, "...[A-Z]")){
             throw new InvalidDataException("Código no válido");
         }
     }
@@ -58,6 +62,12 @@ public class Alumno {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Id: "+ getId() + " || Código: " + getCodigo() + " || Nombre: " + getNombre(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
     
 }

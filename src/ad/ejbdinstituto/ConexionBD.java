@@ -17,7 +17,6 @@ public class ConexionBD {
     private static final String DB_URL = "jdbc:mysql://localhost:3307/";
     private static final String DB_USER = "root";
     private static final String DB_USER_PWD = "usbw";
-    private static final String DB_NAME = "bdInstituto";
     private static Connection conexion;
     private static Statement statement;
 
@@ -32,7 +31,8 @@ public class ConexionBD {
         return statement;
     }
 
-    private static void conectar() {
+    private static boolean conectar() {
+        boolean resultado = true;
         try {
             Properties propiedades = new Properties();
 
@@ -42,13 +42,12 @@ public class ConexionBD {
             //conexion = DriverManager.getConnection(DB_URL, DB_USER, DB_USER_PWD);
             conexion = DriverManager.getConnection(DB_URL, propiedades);
             statement = conexion.createStatement();
-            executeSql("USE " +  DB_NAME);
+            executeSql("USE " +  EstructuraBD.DB_NAME);
         } catch (SQLException e) {
-            System.out.println("Error al realizar la conexión.");
-            System.out.println(e.toString());
-            System.exit(0);
+            peticiones.SalidasGui.mensaje("Error al realizar la conexión a la base de datos.\n" + e.toString());            
+            resultado = false;
         }
-
+        return resultado;
     }
     
     public static boolean executeSql(String sql, String log){
@@ -59,8 +58,9 @@ public class ConexionBD {
                 utilidades.Log.getInstance().addToLog(log);                
             }
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
-            System.out.println("Statement:\n " + sql);            
+            peticiones.SalidasGui.mensaje("Error: " + e.getMessage() + "\nStatement:\n " + sql);            
+            resultado = false;
+        } catch (NullPointerException e){            
             resultado = false;
         }
         return resultado;
@@ -70,4 +70,23 @@ public class ConexionBD {
         return executeSql(sql,"");
     }
     
+     public static ResultSet executeQuerySql(String sql, String log){
+        ResultSet resultado = null;
+        try {
+            resultado = getStatement().executeQuery(sql);
+            if(log != ""){
+                utilidades.Log.getInstance().addToLog(log);                
+            }
+        } catch (SQLException e) {
+            peticiones.SalidasGui.mensaje("Error: " + e.getMessage() + "\nStatement:\n " + sql);            
+            resultado = null;
+        } catch (NullPointerException e){            
+            resultado = null;
+        }
+        return resultado;
+    }
+     
+    public static ResultSet executeQuerySql(String sql){
+        return executeQuerySql(sql,"");
+    }
 }

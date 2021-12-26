@@ -10,12 +10,19 @@ package ad.ejbdinstituto.model;
  * @author a20armandocb
  */
 public class Profesor {
+
     private String dni;
     private String nombre;
     private String titulacion;
+    public static int MAX_SIZE_DNI = 9;
+    public static int MIN_SIZE_DNI = 9;
+    public static int MAX_SIZE_NOMBRE = 50;
+    public static int MIN_SIZE_NOMBRE = 3;
+    public static int MAX_SIZE_TITULACION = 1;
+    public static int MIN_SIZE_TITULACION = 50;
 
     public Profesor(String dni, String nombre, String titulacion) {
-        this.dni = dni;
+        setDni(dni);
         this.nombre = nombre;
         this.titulacion = titulacion;
     }
@@ -25,7 +32,7 @@ public class Profesor {
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        this.dni = dni.toUpperCase();
     }
 
     public String getNombre() {
@@ -43,5 +50,5 @@ public class Profesor {
     public void setTitulacion(String titulacion) {
         this.titulacion = titulacion;
     }
-    
+
 }

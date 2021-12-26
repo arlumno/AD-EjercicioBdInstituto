@@ -19,4 +19,9 @@ public interface IDaoCrud<T> {
     public List<T> readAll();
     public boolean update(T t);
     public boolean delete(T t);
+    
+    default public String validate(String string){
+        //TODO
+        return string;
+    }
 }

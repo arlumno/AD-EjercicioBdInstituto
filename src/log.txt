@@ -36,3 +36,42 @@
 [25-12-2021 16:41:57] Creado Alumno Armando2
 [25-12-2021 16:42:49] Aplicación finalizada
 [25-12-2021 16:42:51] Aplicación finalizada
+[26-12-2021 14:39:36] Aplicación iniciada
+[26-12-2021 14:42:40] Aplicación iniciada
+[26-12-2021 14:54:48] Aplicación iniciada
+[26-12-2021 15:02:05] Aplicación iniciada
+[26-12-2021 15:05:49] Aplicación iniciada
+[26-12-2021 15:05:53] Aplicación finalizada
+[26-12-2021 15:05:54] Aplicación finalizada
+[26-12-2021 15:05:54] Aplicación finalizada
+[26-12-2021 15:05:57] Aplicación iniciada
+[26-12-2021 15:09:18] Aplicación finalizada
+[26-12-2021 15:09:21] Aplicación iniciada
+[26-12-2021 15:11:33] Aplicación finalizada
+[26-12-2021 15:11:35] Aplicación iniciada
+[26-12-2021 15:26:49] Aplicación finalizada
+[26-12-2021 16:08:46] Aplicación iniciada
+[26-12-2021 16:59:02] Aplicación finalizada
+[26-12-2021 18:25:15] Aplicación iniciada
+[26-12-2021 18:29:21] Aplicación finalizada
+[26-12-2021 18:29:23] Aplicación iniciada
+[26-12-2021 18:29:28] Consultando Alumno id: 123Z
+[26-12-2021 18:30:03] Aplicación finalizada
+[26-12-2021 18:45:15] Aplicación iniciada
+[26-12-2021 18:45:46] Aplicación iniciada
+[26-12-2021 18:45:51] Consultando Alumno id: 123Z
+[26-12-2021 18:46:17] Aplicación finalizada
+[26-12-2021 18:46:45] Aplicación iniciada
+[26-12-2021 18:47:11] Consultando Alumno id: 123Z
+[26-12-2021 18:47:42] Aplicación iniciada
+[26-12-2021 18:47:49] Consultando Alumno id: 123Z
+[26-12-2021 18:49:21] Aplicación iniciada
+[26-12-2021 18:49:25] Consultando Alumno id: 123Z
+[26-12-2021 18:49:32] Aplicación finalizada
+[26-12-2021 19:00:19] Aplicación iniciada
+[26-12-2021 19:00:22] Consultando Listado de Alumnos
+[26-12-2021 19:00:36] Creado Alumno Pedro
+[26-12-2021 19:00:39] Consultando Listado de Alumnos
+[26-12-2021 19:00:50] Aplicación finalizada
+[26-12-2021 19:03:07] Aplicación finalizada
+[26-12-2021 19:03:07] Aplicación finalizada

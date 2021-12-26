@@ -5,6 +5,8 @@
  */
 package ad.ejbdinstituto.DAO;
 
+import ad.ejbdinstituto.ConexionBD;
+import ad.ejbdinstituto.EstructuraBD;
 import ad.ejbdinstituto.model.Profesor;
 import java.util.List;
 
@@ -14,11 +16,12 @@ import java.util.List;
  */
 public class ProfesorDaoImp implements IDaoCrud<Profesor> {
 
+    
     @Override
-    public boolean create(Profesor t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean create(Profesor profesor) {
+        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_PROFESORES  + "(dni, nombre, titulacion) VALUES ('"+ profesor.getDni()+ "','" + profesor.getNombre()+ "','" + profesor.getTitulacion()+ "')";        
+        return ConexionBD.executeSql(sql,"Creado Profesor " +  profesor.getNombre());
     }
-
     @Override
     public Profesor read(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -28,8 +31,6 @@ public class ProfesorDaoImp implements IDaoCrud<Profesor> {
     public List<Profesor> readAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 
     @Override
     public boolean update(Profesor t) {

@@ -5,6 +5,8 @@
  */
 package ad.ejbdinstituto;
 
+import ad.ejbdinstituto.model.Alumno;
+import ad.ejbdinstituto.model.Profesor;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -16,7 +18,9 @@ public class EstructuraBD {
 
     private ArrayList<String> sqlArray = new ArrayList<String>();
     private Statement statement;
-
+    public static final String DB_NAME = "bdInstituto";
+    public static final String DB_TABLE_PROFESORES = "profesores";
+    public static final String DB_TABLE_ALUMNOS = "alumnos";
     public EstructuraBD() {
         this.statement = ConexionBD.getStatement();
         tablaProfesores();
@@ -33,25 +37,25 @@ public class EstructuraBD {
 //        // TODO code application logic here
 //    }
     private void tablaProfesores() {
-        sqlArray.add("CREATE DATABASE IF NOT EXISTS bdInstituto;");
-        sqlArray.add("USE BDInstituto;");
+        sqlArray.add("CREATE DATABASE IF NOT EXISTS "+DB_NAME+";");
+        sqlArray.add("USE "+DB_NAME+";");
 
-        sqlArray.add("CREATE TABLE IF NOT EXISTS profesores "
-                + "(dni VARCHAR(10) NOT NULL,"
-                + "nombre VARCHAR(50) NOT NULL,"
-                + "titulacion VARCHAR(50) NOT NULL,"
+        sqlArray.add("CREATE TABLE IF NOT EXISTS "+DB_TABLE_PROFESORES+" "
+                + "(dni VARCHAR("+ Profesor.MAX_SIZE_DNI +") NOT NULL,"
+                + "nombre VARCHAR("+ Profesor.MAX_SIZE_NOMBRE +") NOT NULL,"
+                + "titulacion VARCHAR("+ Profesor.MAX_SIZE_TITULACION +") NOT NULL,"
                 + "PRIMARY KEY (dni)"
                 + ");");
     }
 
     private void tablaAlumnos() {
-        sqlArray.add("CREATE TABLE IF NOT EXISTS alumnos "
+        sqlArray.add("CREATE TABLE IF NOT EXISTS "+DB_TABLE_ALUMNOS+" "
                 + "(id_alumno INT(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,"
-                + "cod_alumno VARCHAR(4) NOT NULL UNIQUE ,"
-                + "nombre VARCHAR(50) NOT NULL,"
+                + "cod_alumno VARCHAR("+ Alumno.MAX_SIZE_CODIGO +") NOT NULL UNIQUE ,"
+                + "nombre VARCHAR("+ Alumno.MAX_SIZE_NOMBRE +") NOT NULL,"
                 + "PRIMARY KEY (id_alumno),"
                 + "UNIQUE (cod_alumno),"
-                + "CHECK (codalumno LIKE '...[A-Z]')"
+                + "CHECK (cod_alumno LIKE '...[A-Z]')"
                 + ");");
 //https://dev.mysql.com/doc/refman/5.6/en/create-table-foreign-keys.html
 //https://www.educba.com/alternate-key-in-sql/

@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public interface IDaoCrud<T> {
+public interface ICrudExtended<T> {
     //https://www.baeldung.com/java-dao-pattern
     //https://dev.to/maddy/what-does-t-mean-in-java-a2e
     public boolean create(T t);

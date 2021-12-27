@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class AlumnoDaoImp implements IDaoCrud<Alumno> {
+public class AlumnoDaoImp implements ICrudExtended<Alumno> {
 
     @Override
     public boolean create(Alumno alumno) {

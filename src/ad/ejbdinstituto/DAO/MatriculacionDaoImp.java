@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class MatriculacionDaoImp implements IDaoCrud<Matriculacion>{
+public class MatriculacionDaoImp implements ICrudExtended<Matriculacion>{
 
     @Override
     public boolean create(Matriculacion t) {

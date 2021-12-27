@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class AsignaturaDaoImp implements IDaoCrud<Asignatura> {
+public class AsignaturaDaoImp implements ICrudExtended<Asignatura> {
 
     @Override
     public boolean create(Asignatura t) {

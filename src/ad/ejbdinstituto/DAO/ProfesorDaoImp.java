@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class ProfesorDaoImp implements IDaoCrud<Profesor> {
+public class ProfesorDaoImp implements ICrudExtended<Profesor> {
 
     
     @Override

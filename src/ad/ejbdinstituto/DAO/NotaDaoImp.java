@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class NotaDaoImp implements IDaoCrud<Nota>{
+public class NotaDaoImp implements ICrudExtended<Nota>{
 
     @Override
     public boolean create(Nota t) {

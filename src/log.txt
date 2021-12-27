@@ -75,3 +75,5 @@
 [26-12-2021 19:00:50] Aplicación finalizada
 [26-12-2021 19:03:07] Aplicación finalizada
 [26-12-2021 19:03:07] Aplicación finalizada
+[27-12-2021 14:05:45] Aplicación iniciada
+[27-12-2021 14:15:12] Aplicación finalizada

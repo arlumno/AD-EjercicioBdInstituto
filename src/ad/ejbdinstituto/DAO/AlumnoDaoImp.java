@@ -34,32 +34,32 @@ public class AlumnoDaoImp implements ICrudExtended<Alumno> {
             String sql = "SELECT id_alumno, cod_alumno, nombre FROM " + EstructuraBD.DB_TABLE_ALUMNOS + " WHERE cod_alumno = '" + validate(codigo) + "'";
             //https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html
             //https://www.ibm.com/docs/es/i/7.1?topic=resultsets-example-resultset-interface
-            rs = ConexionBD.executeQuerySql(sql, "Consultando Alumno id: " + codigo);            
-            if(rs.next()){
-                alumno = new Alumno(rs.getInt(1), rs.getString(2), rs.getString(3));                            
+            rs = ConexionBD.executeQuerySql(sql, "Consultando Alumno id: " + codigo);
+            if (rs.next()) {
+                alumno = new Alumno(rs.getInt(1), rs.getString(2), rs.getString(3));
             }
         } catch (SQLException ex) {
-             peticiones.SalidasGui.mensaje("Error al consultar Alumno");             
+            peticiones.SalidasGui.mensaje("Error al consultar Alumno");
         } catch (InvalidDataException ex) {
-             peticiones.SalidasGui.mensaje("Corrupción en los datos del alumno");             
+            peticiones.SalidasGui.mensaje("Corrupción en los datos del alumno");
         }
         return alumno;
     }
 
     @Override
     public List<Alumno> readAll() {
-        List<Alumno> alumnos = new ArrayList<Alumno>();        
+        List<Alumno> alumnos = new ArrayList<Alumno>();
         ResultSet rs = null;
         try {
-            String sql = "SELECT id_alumno, cod_alumno, nombre FROM " + EstructuraBD.DB_TABLE_ALUMNOS;            
-            rs = ConexionBD.executeQuerySql(sql, "Consultando Listado de Alumnos");            
-            while(rs.next()){
-                alumnos.add(new Alumno(rs.getInt(1), rs.getString(2), rs.getString(3)));                            
+            String sql = "SELECT id_alumno, cod_alumno, nombre FROM " + EstructuraBD.DB_TABLE_ALUMNOS;
+            rs = ConexionBD.executeQuerySql(sql, "Consultando Listado de Alumnos");
+            while (rs.next()) {
+                alumnos.add(new Alumno(rs.getInt(1), rs.getString(2), rs.getString(3)));
             }
         } catch (SQLException ex) {
-             peticiones.SalidasGui.mensaje("Error al consultar Alumnos");             
+            peticiones.SalidasGui.mensaje("Error al consultar Alumnos");
         } catch (InvalidDataException ex) {
-             peticiones.SalidasGui.mensaje("Corrupción en los datos del alumno");             
+            peticiones.SalidasGui.mensaje("Corrupción en los datos del alumno");
         }
         return alumnos;
     }
@@ -67,15 +67,15 @@ public class AlumnoDaoImp implements ICrudExtended<Alumno> {
     @Override
     public boolean update(Alumno alumno) {
         boolean resultado = false;
-
-        return resultado;
+        String sql = "UPDATE " + EstructuraBD.DB_TABLE_ALUMNOS + " SET nombre ='"+ validate(alumno.getNombre()) +"' WHERE cod_alumno = '" + alumno.getCodigo() + "'";
+        return ConexionBD.executeSql(sql, "Modificado Alumno " + alumno.getNombre());
     }
 
     @Override
     public boolean delete(Alumno alumno) {
         boolean resultado = false;
-
-        return resultado;
+        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_ALUMNOS + " WHERE cod_alumno = '" + alumno.getCodigo() + "'";
+        return ConexionBD.executeSql(sql, "Eliminado Alumno " + alumno.getNombre());
     }
 
 }

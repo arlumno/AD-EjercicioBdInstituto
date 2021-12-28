@@ -51,6 +51,8 @@ public class App {
         menu.addOpcion("Alta Alumno", ()-> { gestor.altaAlumno();});
         menu.addOpcion("Buscar Alumno", ()-> { gestor.obtenerAlumno();});
         menu.addOpcion("Listar Alumnos", ()-> { gestor.listarAlumnos();});
+        menu.addOpcion("Modificar Alumno", ()-> { gestor.modificarAlumno();});
+        menu.addOpcion("Borrar Alumno", ()-> { gestor.borrarAlumno();});
         menu.addOpcion("Ver Log", ()-> { gestor.verLog();});
         menu.addOpcion("Borrar Log", ()-> { gestor.borrarLog();});
         

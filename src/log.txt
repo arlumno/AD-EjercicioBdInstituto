@@ -77,3 +77,35 @@
 [26-12-2021 19:03:07] Aplicación finalizada
 [27-12-2021 14:05:45] Aplicación iniciada
 [27-12-2021 14:15:12] Aplicación finalizada
+[28-12-2021 20:23:20] Aplicación iniciada
+[28-12-2021 20:23:25] Consultando Listado de Alumnos
+[28-12-2021 20:23:38] Consultando Alumno id: 123J
+[28-12-2021 20:23:55] Consultando Alumno id: 233U
+[28-12-2021 20:25:54] Aplicación finalizada
+[28-12-2021 20:25:57] Aplicación iniciada
+[28-12-2021 20:26:02] Consultando Listado de Alumnos
+[28-12-2021 20:26:10] Consultando Alumno id: 233u
+[28-12-2021 20:27:32] Aplicación finalizada
+[28-12-2021 20:27:42] Aplicación iniciada
+[28-12-2021 20:28:04] Consultando Listado de Alumnos
+[28-12-2021 20:28:35] Consultando Alumno id: 233u
+[28-12-2021 20:29:07] Aplicación finalizada
+[28-12-2021 20:29:14] Aplicación iniciada
+[28-12-2021 20:29:23] Consultando Alumno id: 233u
+[28-12-2021 20:29:26] Modificado Alumno Pedro
+[28-12-2021 20:29:30] Consultando Listado de Alumnos
+[28-12-2021 20:33:10] Aplicación finalizada
+[28-12-2021 20:33:15] Aplicación iniciada
+[28-12-2021 20:33:18] Consultando Listado de Alumnos
+[28-12-2021 20:33:28] Consultando Alumno id: 123z
+[28-12-2021 20:34:33] Consultando Listado de Alumnos
+[28-12-2021 20:34:40] Consultando Alumno id: 123z
+[28-12-2021 20:35:05] Aplicación finalizada
+[28-12-2021 20:35:11] Aplicación iniciada
+[28-12-2021 20:35:27] Consultando Alumno id: 123z
+[28-12-2021 20:36:04] Aplicación iniciada
+[28-12-2021 20:36:26] Consultando Alumno id: null
+[28-12-2021 20:36:52] Consultando Alumno id: 123z
+[28-12-2021 20:36:55] Eliminado Alumno Armando
+[28-12-2021 20:37:03] Aplicación finalizada
+[28-12-2021 20:37:10] Aplicación finalizada

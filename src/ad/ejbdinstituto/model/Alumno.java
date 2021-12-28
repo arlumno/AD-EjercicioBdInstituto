@@ -17,7 +17,7 @@ public class Alumno {
     public static int MAX_SIZE_CODIGO = 4; 
     public static int MIN_SIZE_CODIGO = 4; 
     
-    private int id;
+    private Integer id;
     private String codigo;
     private String nombre;
     
@@ -38,7 +38,7 @@ public class Alumno {
             throw new InvalidDataException("Código no válido");
         }
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

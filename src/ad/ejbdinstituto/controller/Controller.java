@@ -21,8 +21,21 @@ public class Controller {
         return (new AlumnoDaoImp()).create(alumno);
     }
     public static boolean borrarAlumno(Alumno alumno){
-        return (new AlumnoDaoImp()).delete(alumno);
+        boolean resultado = false;
+        if(alumno.getId() != null){
+            resultado = (new AlumnoDaoImp()).delete(alumno);
+        }
+        return resultado;
     }
+    
+    public static boolean modificarAlumno(Alumno alumno){
+        boolean resultado = false;
+        if(alumno.getId() != null){
+            resultado = (new AlumnoDaoImp()).update(alumno);
+        }
+        return resultado;
+    }
+    
     public static Alumno obtenerAlumno(String codigo){
         return (new AlumnoDaoImp()).read(codigo);
     }

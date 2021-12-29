@@ -16,9 +16,9 @@ import java.util.List;
  *
  * @author a20armandocb
  */
-public class Gestor {
+public class AccionesApp {
 
-    public Gestor() {
+    public AccionesApp() {
 
     }
 
@@ -51,6 +51,7 @@ public class Gestor {
         peticiones.SalidasGui.mensaje("Log Borrado");
     }
 
+    // ALUMNOS
     public void altaAlumno() {
         boolean error;
         String nombre = null;
@@ -126,6 +127,7 @@ public class Gestor {
         }
     }
 
+    //PROFESORES
     public void altaProfesor() {
         boolean error;
         String nombre = null;
@@ -158,4 +160,28 @@ public class Gestor {
 
     }
 
+    public void borrarProfesor() {
+        String codigo = peticiones.EntradasGui.pedirString("Indica el el DNI del Profesor que quieres ELIMINAR.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+        Profesor profesor = null;
+        if ((profesor = Controller.obtenerProfesor(codigo)) != null) {
+            if (peticiones.EntradasGui.pedirBoolean("Seguro que quieres eliminar al profesor " + profesor.getNombre() + " (" + profesor.getDni() + ")")) {
+                if (Controller.borrarProfesor(profesor)) {
+                    peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                } else {
+                    peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                }
+            }
+        } else {
+            peticiones.SalidasGui.mensaje("DNI introducido NO VÁLIDO");
+        }
+    }
+
+    public void listarProfesores() {
+        List<Profesor> profesores = Controller.obtenerProfesores();
+        StringBuilder listadoProfesors = new StringBuilder();
+        for (Profesor profesor : profesores) {
+            listadoProfesors.append(profesor.toString() + "\n");
+        }
+        peticiones.SalidasGui.bloqueTexto(listadoProfesors.toString());
+    }
 }

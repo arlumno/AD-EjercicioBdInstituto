@@ -18,8 +18,8 @@ public class Profesor {
     public static int MIN_SIZE_DNI = 9;
     public static int MAX_SIZE_NOMBRE = 50;
     public static int MIN_SIZE_NOMBRE = 3;
-    public static int MAX_SIZE_TITULACION = 1;
-    public static int MIN_SIZE_TITULACION = 50;
+    public static int MAX_SIZE_TITULACION = 50;
+    public static int MIN_SIZE_TITULACION = 1;
 
     public Profesor(String dni, String nombre, String titulacion) {
         setDni(dni);
@@ -50,5 +50,9 @@ public class Profesor {
     public void setTitulacion(String titulacion) {
         this.titulacion = titulacion;
     }
-
+    
+    @Override
+    public String toString() {
+        return "Dni: "+ getDni()+ " || Nombre: " + getNombre() + " || Titulacion: " + getTitulacion(); //To change body of generated methods, choose Tools | Templates.
+    }
 }

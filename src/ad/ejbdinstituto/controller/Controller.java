@@ -47,5 +47,14 @@ public class Controller {
      public static boolean crearProfesor(Profesor profesor){
         return (new ProfesorDaoImp()).create(profesor);
     }
-    
+     
+     public static Profesor obtenerProfesor(String dni){
+        return (new ProfesorDaoImp()).read(dni);
+    }
+     public static boolean borrarProfesor(Profesor profesor){        
+        return (new ProfesorDaoImp()).delete(profesor);
+    }
+      public static List<Profesor> obtenerProfesores(){
+        return (new ProfesorDaoImp()).readAll();
+    }
 }

@@ -23,52 +23,79 @@ public class App {
     public static void main(String[] args) {
         try {
             utilidades.Log.getInstance().setDir("src\\");
-        } catch (Exception ex) {
-            Logger.getLogger(Gestor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {            
+            System.out.println("Error: " + ex);
         }
         utilidades.Log.getInstance().addToLog("Aplicación iniciada");
         
          boolean continuar = true;
-        Menu menu = construirMenuPrincipal();
-        do {
-            try {
+        
+        try {
+            Menu menu = construirMenuPrincipal();
+            do {
                 continuar = menuAcciones(menu);
-            } catch (Exception e) {
-                System.out.println("Error: " + e);
-            }
-        } while (continuar);
+            } while (continuar);
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
         utilidades.Log.getInstance().addToLog("Aplicación finalizada");     
+        System.exit(0);
     }
     
-    private static Menu construirMenuPrincipal() {
-        Gestor gestor = new Gestor();
-        Menu menu = new Menu();
+    private static Menu construirMenuPrincipal() throws Exception{
+        AccionesApp accionesApp = new AccionesApp();
+        Menu menu = new Menu();        
         menu.setTituloMenu("Menú Base Datos");
         menu.setTextoSalir("Salir");
         
-        menu.addOpcion("Crear Base de Datos", ()-> { gestor.crearBD();});
-        menu.addOpcion("ELIMINAR Base de Datos", ()-> { gestor.borrarBD();});
-        menu.addOpcion("Alta Alumno", ()-> { gestor.altaAlumno();});
-        menu.addOpcion("Buscar Alumno", ()-> { gestor.obtenerAlumno();});
-        menu.addOpcion("Listar Alumnos", ()-> { gestor.listarAlumnos();});
-        menu.addOpcion("Modificar Alumno", ()-> { gestor.modificarAlumno();});
-        menu.addOpcion("Borrar Alumno", ()-> { gestor.borrarAlumno();});
-        menu.addOpcion("Ver Log", ()-> { gestor.verLog();});
-        menu.addOpcion("Borrar Log", ()-> { gestor.borrarLog();});
+        menu.addLabel("Creación BD");
+        menu.addOpcion("Crear Base de Datos", ()-> { accionesApp.crearBD();});
+        menu.addOpcion("ELIMINAR Base de Datos", ()-> { accionesApp.borrarBD();});
+        
+        menu.addLabel("Altas");
+        menu.addOpcion("Profesor", ()-> { accionesApp.altaProfesor();});
+        menu.addOpcion("Alumno", ()-> { accionesApp.altaAlumno();});
+        
+        
+        menu.addLabel("Bajas");
+        menu.addOpcion("Profesor", ()-> { accionesApp.borrarProfesor();});
+        menu.addOpcion("Alumno", ()-> { accionesApp.borrarAlumno();});
+        
+        menu.addLabel("Modificaciones");
+        menu.addOpcion("Alumno", ()-> { accionesApp.modificarAlumno();});
+        
+        
+        menu.addLabel("Consultar y Listar");        
+        menu.addOpcion("Consultar Alumno", ()-> { accionesApp.obtenerAlumno();});
+        menu.addOpcion("Listar Alumnos", ()-> { accionesApp.listarAlumnos();});
+        //menu.addOpcion("Consultar Profesor", ()-> { accionesApp.obtenerProfesores();});
+        menu.addOpcion("Listar Profesores", ()-> { accionesApp.listarProfesores();});
+        
+        
+        menu.addLabel("Log");
+        menu.addOpcion("Ver Log", ()-> { accionesApp.verLog();});
+        menu.addOpcion("Borrar Log", ()-> { accionesApp.borrarLog();});
         
         return menu;
     }
+ 
     
-    private static boolean menuAcciones(Menu menu) throws Exception {
+    private static boolean menuAcciones(Menu menu) {
         boolean continuar = true;
-        menu.mostrarGUI();
-
-        switch (menu.getSeleccion()) {
-            case 0:
-                //salir
-                continuar = false;
-                break;               
+        try {
+            menu.mostrarGUI();
+            switch (menu.getSeleccion()) {
+                case 0:
+                    //salir
+                    continuar = false;               
+                    break;
+            }
+        } catch (Exception e) {
+            continuar = false;  
+            System.out.println("Error: " + e);
         }
         return continuar;
     }
+
+  
 }

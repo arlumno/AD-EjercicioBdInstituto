@@ -8,9 +8,13 @@ package ad.ejbdinstituto;
 import ad.ejbdinstituto.Exceptions.InvalidDataException;
 import ad.ejbdinstituto.controller.Controller;
 import ad.ejbdinstituto.model.Alumno;
+import ad.ejbdinstituto.model.Asignatura;
+import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
-import java.util.ArrayList;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
+import peticiones.EntradasGui;
 
 /**
  *
@@ -59,25 +63,29 @@ public class AccionesApp {
         do {
             error = false;
             try {
-                nombre = peticiones.EntradasGui.pedirString("Indica el nombre del Alumno", Alumno.MAX_SIZE_NOMBRE, Alumno.MIN_SIZE_NOMBRE, false);
-                if (nombre != null) {
-                    codigo = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
-                }
-                if (nombre != null && codigo != null) {
-                    Alumno alumno = new Alumno(codigo, nombre);
-                    if (Controller.crearAlumno(alumno)) {
-                        peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
-                    } else {
-                        peticiones.SalidasGui.mensaje("Error al realizar la Operación");
-                        error = true;
+                codigo = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+                if (Controller.obtenerAlumno(codigo) == null) {
+
+                    if (codigo != null) {
+                        nombre = peticiones.EntradasGui.pedirString("Indica el nombre del Alumno", Alumno.MAX_SIZE_NOMBRE, Alumno.MIN_SIZE_NOMBRE, false);
                     }
+                    if (nombre != null && codigo != null) {
+                        Alumno alumno = new Alumno(codigo, nombre);
+                        if (Controller.crearAlumno(alumno)) {
+                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                        } else {
+                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                            error = true;
+                        }
+                    }
+                } else {
+                    peticiones.SalidasGui.mensaje("Error al crear el Alumno. El Código ya está registrado");
                 }
             } catch (InvalidDataException ex) {
                 error = true;
                 peticiones.SalidasGui.mensaje("Error al crear el alumno. Datos inválidos");
             }
         } while (error);
-
     }
 
     public void obtenerAlumno() {
@@ -128,6 +136,14 @@ public class AccionesApp {
     }
 
     //PROFESORES
+    public void obtenerProfesor() {
+        String dni = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+        if (dni != null) {
+            Profesor profesor = Controller.obtenerProfesor(dni);
+            peticiones.SalidasGui.mensaje(profesor.toString());
+        }
+    }
+
     public void altaProfesor() {
         boolean error;
         String nombre = null;
@@ -136,21 +152,26 @@ public class AccionesApp {
         do {
             error = false;
             try {
-                nombre = peticiones.EntradasGui.pedirString("Indica el nombre del Profesor", Profesor.MAX_SIZE_NOMBRE, Profesor.MIN_SIZE_NOMBRE, false);
-                if (nombre != null) {
-                    dni = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+                dni = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+                if (Controller.obtenerProfesor(dni) == null) {
+
                     if (dni != null) {
-                        titulacion = peticiones.EntradasGui.pedirString("Indica la titulación del Profesor. Max. " + Profesor.MAX_SIZE_TITULACION + " caracteres.", Profesor.MAX_SIZE_TITULACION, Profesor.MIN_SIZE_TITULACION, false);
+                        nombre = peticiones.EntradasGui.pedirString("Indica el nombre del Profesor", Profesor.MAX_SIZE_NOMBRE, Profesor.MIN_SIZE_NOMBRE, false);
+                        if (nombre != null) {
+                            titulacion = peticiones.EntradasGui.pedirString("Indica la titulación del Profesor. Max. " + Profesor.MAX_SIZE_TITULACION + " caracteres.", Profesor.MAX_SIZE_TITULACION, Profesor.MIN_SIZE_TITULACION, false);
+                        }
                     }
-                }
-                if (nombre != null && dni != null && titulacion != null) {
-                    Profesor profesor = new Profesor(dni, nombre, titulacion);
-                    if (Controller.crearProfesor(profesor)) {
-                        peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
-                    } else {
-                        peticiones.SalidasGui.mensaje("Error al realizar la Operación");
-                        error = true;
+                    if (nombre != null && dni != null && titulacion != null) {
+                        Profesor profesor = new Profesor(dni, nombre, titulacion);
+                        if (Controller.crearProfesor(profesor)) {
+                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                        } else {
+                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                            error = true;
+                        }
                     }
+                } else {
+                    peticiones.SalidasGui.mensaje("Error al crear el profesor. El DNI ya está registrado");
                 }
             } catch (Exception e) {
                 error = true;
@@ -183,5 +204,93 @@ public class AccionesApp {
             listadoProfesors.append(profesor.toString() + "\n");
         }
         peticiones.SalidasGui.bloqueTexto(listadoProfesors.toString());
+    }
+
+    public void altaAsignatura() {
+        boolean error;
+        String ciclo = null;
+        String codigo = null;
+        do {
+            error = false;
+            try {
+                codigo = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                if (Controller.obtenerAsignatura(codigo) == null) {
+
+                    if (codigo != null) {
+                        ciclo = peticiones.EntradasGui.pedirString("Indica el ciclo de la Asignatura", Asignatura.MAX_SIZE_NOMBRE, Asignatura.MIN_SIZE_NOMBRE, false);
+                    }
+                    if (ciclo != null && codigo != null) {
+                        Asignatura asignatura = new Asignatura(codigo, ciclo);
+                        if (Controller.crearAsignatura(asignatura)) {
+                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                        } else {
+                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                            error = true;
+                        }
+                    }
+                } else {
+                    peticiones.SalidasGui.mensaje("Error al crear el Asignatura. El Código ya está registrado");
+                }
+            } catch (InvalidDataException ex) {
+                error = true;
+                peticiones.SalidasGui.mensaje("Error al crear el asignatura. Datos inválidos");
+            }
+        } while (error);
+
+    }
+
+    public void obtenerAsignatura() {
+        String codigo = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+        Asignatura asignatura = Controller.obtenerAsignatura(codigo);
+        peticiones.SalidasGui.mensaje(asignatura.toString());
+    }
+
+    public void listarAsignaturas() {
+        List<Asignatura> asignaturas = Controller.obtenerAsignaturas();
+        StringBuilder listadoAsignaturas = new StringBuilder();
+        for (Asignatura asignatura : asignaturas) {
+            listadoAsignaturas.append(asignatura.toString() + "\n");
+        }
+        peticiones.SalidasGui.bloqueTexto(listadoAsignaturas.toString());
+    }
+
+    //NOTAS
+    public void altaNota() {
+        boolean error;
+        Alumno alumno = null;
+        Asignatura asignatura = null;
+        String codAlumno = null;
+        String codAsignatura = null;
+        Date fechaNota = null;
+        float puntuacionNota;
+
+        do {
+            error = false;
+            codAlumno = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+            if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
+                codAsignatura = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
+                    fechaNota = EntradasGui.pedirFecha("Indica la fecha de la Nota");
+                    if (fechaNota != null) {
+                        puntuacionNota = EntradasGui.pedirFloat("Indica la NOTA");
+                        //TODO arreglar date to localdate y cancelar operaciones float
+                        Nota nota = new Nota(asignatura, alumno, fechaNota.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), puntuacionNota);
+                        if (Controller.crearNota(nota)) {
+                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                        } else {
+                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                            error = true;
+                        }
+                    }
+
+                } else {
+                    peticiones.SalidasGui.mensaje("Error el código de la AsignaturaNo Existe");
+
+                }
+            } else {
+                peticiones.SalidasGui.mensaje("Error el código del Alumno No Existe");
+            }
+
+        } while (error);
     }
 }

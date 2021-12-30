@@ -53,13 +53,15 @@ public class App {
         menu.addOpcion("ELIMINAR Base de Datos", ()-> { accionesApp.borrarBD();});
         
         menu.addLabel("Altas");
-        menu.addOpcion("Profesor", ()-> { accionesApp.altaProfesor();});
-        menu.addOpcion("Alumno", ()-> { accionesApp.altaAlumno();});
+        menu.addOpcion("Nuevo Profesor", ()-> { accionesApp.altaProfesor();});
+        menu.addOpcion("Nuevo Alumno", ()-> { accionesApp.altaAlumno();});
+        menu.addOpcion("Nueva Asignatura", ()-> { accionesApp.altaAsignatura();});
+        menu.addOpcion("Poner Nota", ()-> { accionesApp.altaNota();});
         
         
         menu.addLabel("Bajas");
-        menu.addOpcion("Profesor", ()-> { accionesApp.borrarProfesor();});
-        menu.addOpcion("Alumno", ()-> { accionesApp.borrarAlumno();});
+        menu.addOpcion("Eliminar Profesor", ()-> { accionesApp.borrarProfesor();});
+        menu.addOpcion("Eliminar Alumno", ()-> { accionesApp.borrarAlumno();});
         
         menu.addLabel("Modificaciones");
         menu.addOpcion("Alumno", ()-> { accionesApp.modificarAlumno();});
@@ -68,8 +70,10 @@ public class App {
         menu.addLabel("Consultar y Listar");        
         menu.addOpcion("Consultar Alumno", ()-> { accionesApp.obtenerAlumno();});
         menu.addOpcion("Listar Alumnos", ()-> { accionesApp.listarAlumnos();});
-        //menu.addOpcion("Consultar Profesor", ()-> { accionesApp.obtenerProfesores();});
+        menu.addOpcion("Consultar Profesor", ()-> { accionesApp.obtenerProfesor();});
         menu.addOpcion("Listar Profesores", ()-> { accionesApp.listarProfesores();});
+        menu.addOpcion("Consultar Asignatura", ()-> { accionesApp.obtenerAsignatura();});
+        menu.addOpcion("Listar Asignatura", ()-> { accionesApp.listarAsignaturas();});
         
         
         menu.addLabel("Log");

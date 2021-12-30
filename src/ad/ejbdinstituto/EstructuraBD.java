@@ -21,6 +21,7 @@ public class EstructuraBD {
     public static final String DB_NAME = "bdInstituto";
     public static final String DB_TABLE_PROFESORES = "profesores";
     public static final String DB_TABLE_ALUMNOS = "alumnos";
+    public static final String DB_TABLE_ASIGNATURAS = "asignaturas";
 
     public EstructuraBD() {
         this.statement = ConexionBD.getStatement();
@@ -70,7 +71,7 @@ public class EstructuraBD {
     }
 
     private void tablaAsignaturas() {
-        sqlArray.add("CREATE TABLE IF NOT EXISTS asignaturas "
+        sqlArray.add("CREATE TABLE IF NOT EXISTS " + DB_TABLE_ASIGNATURAS + " "
                 + "(id_asignatura INT(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,"
                 + "cod_asignatura VARCHAR (4) NOT NULL ,"
                 + "ciclo VARCHAR(50) NOT NULL,"

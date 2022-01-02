@@ -57,6 +57,7 @@ public class App {
         menu.addOpcion("Nuevo Alumno", ()-> { accionesApp.altaAlumno();});
         menu.addOpcion("Nueva Asignatura", ()-> { accionesApp.altaAsignatura();});
         menu.addOpcion("Poner Nota", ()-> { accionesApp.altaNota();});
+        menu.addOpcion("Matricular", ()-> { accionesApp.altaMatricula();});
         
         
         menu.addLabel("Bajas");

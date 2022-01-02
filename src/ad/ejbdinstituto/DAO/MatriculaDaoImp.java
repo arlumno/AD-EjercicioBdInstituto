@@ -5,39 +5,42 @@
  */
 package ad.ejbdinstituto.DAO;
 
-import ad.ejbdinstituto.model.Matriculacion;
+import ad.ejbdinstituto.ConexionBD;
+import ad.ejbdinstituto.EstructuraBD;
+import ad.ejbdinstituto.model.Matricula;
 import java.util.List;
 
 /**
  *
  * @author Ar
  */
-public class MatriculacionDaoImp implements ICrudExtended<Matriculacion>{
+public class MatriculaDaoImp implements ICrudExtended<Matricula>{
 
     @Override
-    public boolean create(Matriculacion t) {
+    public boolean create(Matricula matricula) {
+        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_MATRICULAS + "(id_alumno, id_asignatura, dni_profesor) VALUES ('" + matricula.getAlumno().getId() + "','" + matricula.getAsignatura().getId()+ "','" + matricula.getProfesor().getDni()+ "')";
+        return ConexionBD.executeSql(sql, "Creada Matricula "+ matricula.getAsignatura().getCodigo() + " - "+ matricula.getAlumno().getNombre());
+    }
+
+    @Override
+    public Matricula read(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Matriculacion read(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Matriculacion> readAll() {
+    public List<Matricula> readAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
 
     @Override
-    public boolean update(Matriculacion t) {
+    public boolean update(Matricula t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Matriculacion t) {
+    public boolean delete(Matricula t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

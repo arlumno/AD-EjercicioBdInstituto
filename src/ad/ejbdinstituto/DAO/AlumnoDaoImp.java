@@ -35,7 +35,7 @@ public class AlumnoDaoImp implements ICrudExtended<Alumno> {
             //https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html
             //https://www.ibm.com/docs/es/i/7.1?topic=resultsets-example-resultset-interface
             rs = ConexionBD.executeQuerySql(sql, "Consultando Alumno id: " + codigo);
-            if (rs.next()) {
+            if (rs != null && rs.next()) {
                 alumno = new Alumno(rs.getInt(1), rs.getString(2), rs.getString(3));
             }
         } catch (SQLException ex) {

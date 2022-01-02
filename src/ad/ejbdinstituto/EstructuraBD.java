@@ -22,6 +22,8 @@ public class EstructuraBD {
     public static final String DB_TABLE_PROFESORES = "profesores";
     public static final String DB_TABLE_ALUMNOS = "alumnos";
     public static final String DB_TABLE_ASIGNATURAS = "asignaturas";
+    public static final String DB_TABLE_NOTAS = "notas";
+    public static final String DB_TABLE_MATRICULAS = "profesores_alumnos_asignaturas";
 
     public EstructuraBD() {
         this.statement = ConexionBD.getStatement();
@@ -30,7 +32,7 @@ public class EstructuraBD {
         tablaAlumnos();
         tablaAsignaturas();
         tablaNotas();
-        tablasInterrelaciones();
+        tablaMatricula();
     }
 
     /**
@@ -81,7 +83,7 @@ public class EstructuraBD {
                 + ");");
     }
 
-    private void tablasInterrelaciones() {
+    private void tablaMatricula() {
         sqlArray.add("CREATE TABLE IF NOT EXISTS profesores_alumnos_asignaturas "
                 + "(dni_profesor VARCHAR (10) NOT NULL, "
                 + "id_alumno INT(4) UNSIGNED ZEROFILL NOT NULL,"

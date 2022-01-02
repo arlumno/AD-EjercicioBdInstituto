@@ -5,6 +5,8 @@
  */
 package ad.ejbdinstituto.DAO;
 
+import ad.ejbdinstituto.ConexionBD;
+import ad.ejbdinstituto.EstructuraBD;
 import ad.ejbdinstituto.model.Nota;
 import java.util.List;
 
@@ -15,8 +17,9 @@ import java.util.List;
 public class NotaDaoImp implements ICrudExtended<Nota>{
 
     @Override
-    public boolean create(Nota t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean create(Nota nota) {
+        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_NOTAS + "(id_alumno, id_asignatura, fecha, nota) VALUES ('" + nota.getAlumno().getId() + "','" + nota.getAsignatura().getId()+ "','" + nota.getFecha()+ "','" + nota.getNota()+ "')";
+        return ConexionBD.executeSql(sql, "Creada Nota "+ nota.getAsignatura().getCodigo() + " - "+ nota.getAlumno().getNombre());
     }
 
     @Override

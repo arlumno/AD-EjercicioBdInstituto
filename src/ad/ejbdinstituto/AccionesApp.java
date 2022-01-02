@@ -9,6 +9,7 @@ import ad.ejbdinstituto.Exceptions.InvalidDataException;
 import ad.ejbdinstituto.controller.Controller;
 import ad.ejbdinstituto.model.Alumno;
 import ad.ejbdinstituto.model.Asignatura;
+import ad.ejbdinstituto.model.Matricula;
 import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
 import java.time.ZoneId;
@@ -277,7 +278,7 @@ public class AccionesApp {
                         Nota nota = new Nota(asignatura, alumno, fechaNota.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), puntuacionNota);
                         if (Controller.crearNota(nota)) {
                             peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
-                        } else {
+                        }else {
                             peticiones.SalidasGui.mensaje("Error al realizar la Operación");
                             error = true;
                         }
@@ -285,6 +286,46 @@ public class AccionesApp {
 
                 } else {
                     peticiones.SalidasGui.mensaje("Error el código de la AsignaturaNo Existe");
+
+                }
+            } else {
+                peticiones.SalidasGui.mensaje("Error el código del Alumno No Existe");
+            }
+
+        } while (error);
+    }
+
+    //MATRICULA
+    public void altaMatricula() {
+        boolean error;
+        Alumno alumno = null;
+        Asignatura asignatura = null;
+        Profesor profesor = null;
+        String codAlumno = null;
+        String codAsignatura = null;
+        String dniProfesor = null;
+
+        do {
+            error = false;
+            codAlumno = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+            if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
+                codAsignatura = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
+                    dniProfesor = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+                    if ((profesor = Controller.obtenerProfesor(dniProfesor)) == null) {
+                        Matricula matricula = new Matricula(profesor, asignatura, alumno);
+                        if (Controller.altaMatricula(matricula)) {
+                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                        } else {
+                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                            error = true;
+                        }
+                    } else {
+                        peticiones.SalidasGui.mensaje("Error el dni del Profesor No Existe");
+                    }
+
+                } else {
+                    peticiones.SalidasGui.mensaje("Error el código de la Asignatura No Existe");
 
                 }
             } else {

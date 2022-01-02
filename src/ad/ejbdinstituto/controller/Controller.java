@@ -7,10 +7,12 @@ package ad.ejbdinstituto.controller;
 
 import ad.ejbdinstituto.DAO.AlumnoDaoImp;
 import ad.ejbdinstituto.DAO.AsignaturaDaoImp;
+import ad.ejbdinstituto.DAO.MatriculaDaoImp;
 import ad.ejbdinstituto.DAO.NotaDaoImp;
 import ad.ejbdinstituto.DAO.ProfesorDaoImp;
 import ad.ejbdinstituto.model.Alumno;
 import ad.ejbdinstituto.model.Asignatura;
+import ad.ejbdinstituto.model.Matricula;
 import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
 import java.util.List;
@@ -68,9 +70,10 @@ public class Controller {
     }
 
     //ASIGNATURA
-    public static boolean crearAsignatura(Asignatura asignatura){
+    public static boolean crearAsignatura(Asignatura asignatura) {
         return (new AsignaturaDaoImp()).create(asignatura);
     }
+
     public static boolean borrarAsignatura(Asignatura asignatura) {
         boolean resultado = false;
         if (asignatura.getId() != null) {
@@ -94,10 +97,17 @@ public class Controller {
     public static List<Asignatura> obtenerAsignaturas() {
         return (new AsignaturaDaoImp()).readAll();
     }
-    
-    //NOTAS
-    
+
+    //NOTAS    
     public static boolean crearNota(Nota nota) {
+        //TODO validar que datos requeridos existan (id).
         return (new NotaDaoImp()).create(nota);
+    }
+
+    //MATRICULA
+    public static boolean altaMatricula(Matricula matricula) {
+        //TODO validar que datos requeridos existan (id).
+        return (new MatriculaDaoImp()).create(matricula);
+
     }
 }

@@ -9,14 +9,14 @@ package ad.ejbdinstituto.model;
  *
  * @author a20armandocb
  */
-public class Matriculacion {
+public class Matricula {
 
     private String id;
     private Profesor profesor;
     private Asignatura asignatura;
     private Alumno alumno;
 
-    public Matriculacion(Profesor profesor, Asignatura asignatura, Alumno alumno) {
+    public Matricula(Profesor profesor, Asignatura asignatura, Alumno alumno) {
         this.profesor = profesor;
         this.asignatura = asignatura;
         this.alumno = alumno;

@@ -33,7 +33,7 @@ public class NotaDaoImp implements ICrudNota, IValidateSql {
         Nota nota = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT id_asignatura, id_alumno, fecha, nota FROM " + EstructuraBD.DB_TABLE_ALUMNOS + " WHERE id_asignatura = '" + validate(idAsignatura) + "' , id_alumno = '" + validate(idAlumno) + "' , fecha = '" + validate(fecha) + "'";
+            String sql = "SELECT id_asignatura, id_alumno, fecha, nota FROM " + EstructuraBD.DB_TABLE_NOTAS + " WHERE id_asignatura = '" + validate(idAsignatura) + "' and id_alumno = '" + validate(idAlumno) + "' and fecha = '" + validate(fecha) + "'";
             rs = ConexionBD.executeQuerySql(sql, "Consultando Nota de : " + idAlumno + " - " + idAsignatura + " - " + fecha);
             if (rs != null && rs.next()) {
                 Asignatura asignatura = Controller.obtenerAsignatura(rs.getString(1));

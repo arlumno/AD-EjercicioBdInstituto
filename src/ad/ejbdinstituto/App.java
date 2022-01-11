@@ -65,7 +65,7 @@ public class App {
         
         menu.addLabel("Modificaciones");
         menu.addOpcion("Nombre Alumno", ()-> { accionesApp.modificarNombreAlumno();});
-        menu.addOpcion("Nota Alumno", ()-> { accionesApp.modificarNota();});
+        menu.addOpcion("Nota Alumno", ()-> { accionesApp.modificarNota();}); //TODO arreglar.
         
         
         menu.addLabel("Consultar y Listar");        

@@ -12,8 +12,8 @@ import ad.ejbdinstituto.model.Asignatura;
 import ad.ejbdinstituto.model.Matricula;
 import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
+import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 import peticiones.EntradasGui;
 
@@ -105,7 +105,7 @@ public class AccionesApp {
         for (Alumno alumno : alumnos) {
             listadoAlumnos.append(alumno.toString() + "\n");
         }
-        peticiones.SalidasGui.bloqueTexto(listadoAlumnos.toString());
+        peticiones.SalidasGui.bloqueTexto("Alumnos", listadoAlumnos.toString());
     }
 
     void modificarNombreAlumno() {
@@ -208,7 +208,7 @@ public class AccionesApp {
         for (Profesor profesor : profesores) {
             listadoProfesors.append(profesor.toString() + "\n");
         }
-        peticiones.SalidasGui.bloqueTexto(listadoProfesors.toString());
+        peticiones.SalidasGui.bloqueTexto("Profesores",listadoProfesors.toString());
     }
 
     public void altaAsignatura() {
@@ -256,7 +256,7 @@ public class AccionesApp {
         for (Asignatura asignatura : asignaturas) {
             listadoAsignaturas.append(asignatura.toString() + "\n");
         }
-        peticiones.SalidasGui.bloqueTexto(listadoAsignaturas.toString());
+        peticiones.SalidasGui.bloqueTexto("Asignaturas", listadoAsignaturas.toString());
     }
 
     //NOTAS
@@ -266,8 +266,8 @@ public class AccionesApp {
         Asignatura asignatura = null;
         String codAlumno = null;
         String codAsignatura = null;
-        Date fechaNota = null;
-        float puntuacionNota;
+        LocalDate fecha = null;
+        float puntuacion;
 
         do {
             error = false;
@@ -275,11 +275,11 @@ public class AccionesApp {
             if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
                 codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
-                    fechaNota = EntradasGui.pedirFecha("Indica la fecha de la Nota");
-                    if (fechaNota != null) {
-                        puntuacionNota = EntradasGui.pedirFloat("Indica la NOTA");
+                    fecha = EntradasGui.pedirLocalDate("Indica la fecha de la Nota");
+                    if (fecha != null) {
+                        puntuacion = EntradasGui.pedirFloat("Indica la NOTA");
                         //TODO arreglar date to localdate y cancelar operaciones float
-                        Nota nota = new Nota(asignatura, alumno, fechaNota.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), puntuacionNota);
+                        Nota nota = new Nota(asignatura, alumno, fecha, puntuacion);
                         if (Controller.crearNota(nota)) {
                             peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
                         } else {
@@ -306,7 +306,7 @@ public class AccionesApp {
         Profesor profesor = null;
         String codAlumno = null;
         String codAsignatura = null;
-        Date fecha;
+        LocalDate fecha;
         float puntuacion;
         do {
             error = false;
@@ -314,10 +314,10 @@ public class AccionesApp {
             if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
                 codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
-                    fecha = EntradasGui.pedirFecha("Indica la fecha de la nota");
+                    fecha = EntradasGui.pedirLocalDate("Indica la fecha de la nota");
                     if (Controller.obtenerNota(codAsignatura, codAlumno, fecha) != null) {
                            puntuacion = EntradasGui.pedirFloat("Indica la nueva nota");
-                        if (Controller.modificarNota(new Nota(asignatura, alumno, fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate() ,puntuacion))) {
+                        if (Controller.modificarNota(new Nota(asignatura, alumno, fecha ,puntuacion))) {
                             peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
                         } else {
                             peticiones.SalidasGui.mensaje("Error al realizar la Operación");

@@ -220,3 +220,41 @@
 [11-01-2022 20:00:03] Consultando Profesor dni: null
 [11-01-2022 20:00:05] Aplicación finalizada
 [11-01-2022 20:30:13] Aplicación iniciada
+[11-01-2022 20:31:33] Consultando Listado de Alumnos
+[11-01-2022 20:31:46] Consultando Alumno id: 123J
+[11-01-2022 20:32:10] Consultando Asignatura id: null
+[11-01-2022 20:32:15] Consultando Listado de Asignaturas
+[11-01-2022 20:32:22] Consultando Listado de Profesores
+[11-01-2022 20:32:36] Consultando Alumno id: 123J
+[11-01-2022 20:32:45] Consultando Asignatura id: 123A
+[11-01-2022 20:32:55] Creada Nota 123A - Armando2
+[11-01-2022 20:33:04] Consultando Alumno id: 123J
+[11-01-2022 20:33:34] Consultando Asignatura id: 123A
+[11-01-2022 20:46:02] Aplicación finalizada
+[11-01-2022 20:49:37] Aplicación iniciada
+[11-01-2022 20:49:47] Consultando Alumno id: null
+[11-01-2022 20:49:57] Consultando Listado de Asignaturas
+[11-01-2022 20:49:58] Consultando Listado de Profesores
+[11-01-2022 20:50:00] Consultando Listado de Alumnos
+[11-01-2022 20:51:32] Aplicación finalizada
+[11-01-2022 20:51:35] Aplicación iniciada
+[11-01-2022 20:51:36] Consultando Listado de Alumnos
+[11-01-2022 20:51:39] Consultando Listado de Profesores
+[11-01-2022 20:51:42] Consultando Asignatura id: null
+[11-01-2022 20:51:43] Consultando Listado de Asignaturas
+[11-01-2022 20:51:59] Consultando Alumno id: 123J
+[11-01-2022 20:52:06] Consultando Asignatura id: 123A
+[11-01-2022 20:53:47] Aplicación finalizada
+[11-01-2022 20:54:16] Aplicación iniciada
+[11-01-2022 20:54:34] Consultando Alumno id: 123J
+[11-01-2022 20:54:40] Consultando Asignatura id: 123w
+[11-01-2022 20:54:49] Consultando Alumno id: 123J
+[11-01-2022 20:54:52] Consultando Asignatura id: 123A
+[11-01-2022 20:56:04] Aplicación finalizada
+[11-01-2022 20:56:06] Aplicación iniciada
+[11-01-2022 20:56:14] Consultando Listado de Alumnos
+[11-01-2022 20:56:17] Consultando Listado de Asignaturas
+[11-01-2022 20:56:28] Consultando Alumno id: 123J
+[11-01-2022 20:56:32] Consultando Asignatura id: 123A
+[11-01-2022 20:56:37] Consultando Nota de : 123J - 123A - 2021-01-11
+[11-01-2022 20:56:46] Aplicación finalizada

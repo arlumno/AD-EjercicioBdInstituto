@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class ProfesorDaoImp implements ICrudExtended<Profesor> {
+public class ProfesorDaoImp implements ICrudExtended<Profesor>, IValidateSql {
 
     @Override
     public boolean create(Profesor profesor) {

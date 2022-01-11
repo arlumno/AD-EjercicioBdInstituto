@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public interface ICrudExtended<T> {
+public interface ICrudExtended<T>{
     //https://www.baeldung.com/java-dao-pattern
     //https://dev.to/maddy/what-does-t-mean-in-java-a2e
     public boolean create(T t);
@@ -20,8 +20,4 @@ public interface ICrudExtended<T> {
     public boolean update(T t);
     public boolean delete(T t);
     
-    default public String validate(String string){
-        //TODO
-        return string;
-    }
-}
+ }

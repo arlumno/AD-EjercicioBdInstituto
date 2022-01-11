@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package ad.ejbdinstituto;
-import java.sql.*;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import menu.Menu;
 
 
@@ -63,9 +60,12 @@ public class App {
         menu.addLabel("Bajas");
         menu.addOpcion("Eliminar Profesor", ()-> { accionesApp.borrarProfesor();});
         menu.addOpcion("Eliminar Alumno", ()-> { accionesApp.borrarAlumno();});
+        //TODO borrar en cascada (o no) profesor y alumno (notas asignaturas etc..)
+        
         
         menu.addLabel("Modificaciones");
-        menu.addOpcion("Alumno", ()-> { accionesApp.modificarAlumno();});
+        menu.addOpcion("Nombre Alumno", ()-> { accionesApp.modificarNombreAlumno();});
+        menu.addOpcion("Nota Alumno", ()-> { accionesApp.modificarNota();});
         
         
         menu.addLabel("Consultar y Listar");        
@@ -74,7 +74,7 @@ public class App {
         menu.addOpcion("Consultar Profesor", ()-> { accionesApp.obtenerProfesor();});
         menu.addOpcion("Listar Profesores", ()-> { accionesApp.listarProfesores();});
         menu.addOpcion("Consultar Asignatura", ()-> { accionesApp.obtenerAsignatura();});
-        menu.addOpcion("Listar Asignatura", ()-> { accionesApp.listarAsignaturas();});
+        menu.addOpcion("Listar Asignaturas", ()-> { accionesApp.listarAsignaturas();});
         
         
         menu.addLabel("Log");

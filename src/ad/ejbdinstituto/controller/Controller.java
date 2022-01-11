@@ -15,6 +15,7 @@ import ad.ejbdinstituto.model.Asignatura;
 import ad.ejbdinstituto.model.Matricula;
 import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -102,6 +103,14 @@ public class Controller {
     public static boolean crearNota(Nota nota) {
         //TODO validar que datos requeridos existan (id).
         return (new NotaDaoImp()).create(nota);
+    }
+    public static Nota obtenerNota(String asignatura, String alumno, Date fecha){
+        return (new NotaDaoImp()).read(asignatura,alumno,fecha.toString());
+
+    }
+    public static boolean modificarNota(Nota nota) {
+        //TODO validar que datos requeridos existan (id).
+        return (new NotaDaoImp()).update(nota);
     }
 
     //MATRICULA

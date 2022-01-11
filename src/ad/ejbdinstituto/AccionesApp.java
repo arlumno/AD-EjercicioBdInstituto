@@ -23,6 +23,10 @@ import peticiones.EntradasGui;
  */
 public class AccionesApp {
 
+    private final String PEDIR_COD_ALUMNO = "Indica el código del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)";
+    private final String PEDIR_DNI_PROFESOR = "Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.";
+    private final String PEDIR_COD_ASIGNATURA = "Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)";
+
     public AccionesApp() {
 
     }
@@ -64,7 +68,7 @@ public class AccionesApp {
         do {
             error = false;
             try {
-                codigo = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+                codigo = peticiones.EntradasGui.pedirString(PEDIR_COD_ALUMNO, Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
                 if (Controller.obtenerAlumno(codigo) == null) {
 
                     if (codigo != null) {
@@ -104,7 +108,7 @@ public class AccionesApp {
         peticiones.SalidasGui.bloqueTexto(listadoAlumnos.toString());
     }
 
-    void modificarAlumno() {
+    void modificarNombreAlumno() {
         String codigo = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno que quieres Modificar.", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
         Alumno alumno = null;
         if ((alumno = Controller.obtenerAlumno(codigo)) != null) {
@@ -138,7 +142,7 @@ public class AccionesApp {
 
     //PROFESORES
     public void obtenerProfesor() {
-        String dni = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+        String dni = peticiones.EntradasGui.pedirString(PEDIR_DNI_PROFESOR, Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
         if (dni != null) {
             Profesor profesor = Controller.obtenerProfesor(dni);
             peticiones.SalidasGui.mensaje(profesor.toString());
@@ -153,7 +157,7 @@ public class AccionesApp {
         do {
             error = false;
             try {
-                dni = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+                dni = peticiones.EntradasGui.pedirString(PEDIR_DNI_PROFESOR, Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
                 if (Controller.obtenerProfesor(dni) == null) {
 
                     if (dni != null) {
@@ -214,7 +218,7 @@ public class AccionesApp {
         do {
             error = false;
             try {
-                codigo = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                codigo = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if (Controller.obtenerAsignatura(codigo) == null) {
 
                     if (codigo != null) {
@@ -267,9 +271,9 @@ public class AccionesApp {
 
         do {
             error = false;
-            codAlumno = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+            codAlumno = peticiones.EntradasGui.pedirString(PEDIR_COD_ALUMNO, Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
             if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
-                codAsignatura = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
                     fechaNota = EntradasGui.pedirFecha("Indica la fecha de la Nota");
                     if (fechaNota != null) {
@@ -278,7 +282,7 @@ public class AccionesApp {
                         Nota nota = new Nota(asignatura, alumno, fechaNota.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), puntuacionNota);
                         if (Controller.crearNota(nota)) {
                             peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
-                        }else {
+                        } else {
                             peticiones.SalidasGui.mensaje("Error al realizar la Operación");
                             error = true;
                         }
@@ -286,6 +290,45 @@ public class AccionesApp {
 
                 } else {
                     peticiones.SalidasGui.mensaje("Error el código de la AsignaturaNo Existe");
+
+                }
+            } else {
+                peticiones.SalidasGui.mensaje("Error el código del Alumno No Existe");
+            }
+
+        } while (error);
+    }
+
+    public void modificarNota() {
+        boolean error;
+        Alumno alumno = null;
+        Asignatura asignatura = null;
+        Profesor profesor = null;
+        String codAlumno = null;
+        String codAsignatura = null;
+        Date fecha;
+        float puntuacion;
+        do {
+            error = false;
+            codAlumno = peticiones.EntradasGui.pedirString(PEDIR_COD_ALUMNO, Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+            if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
+                codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
+                    fecha = EntradasGui.pedirFecha("Indica la fecha de la nota");
+                    if (Controller.obtenerNota(codAsignatura, codAlumno, fecha) != null) {
+                           puntuacion = EntradasGui.pedirFloat("Indica la nueva nota");
+                        if (Controller.modificarNota(new Nota(asignatura, alumno, fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate() ,puntuacion))) {
+                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                        } else {
+                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                            error = true;
+                        }
+                    } else {
+                        peticiones.SalidasGui.mensaje("Error La nota no está registrada para ese alumno y asignatura en esa fecha.");
+                    }
+
+                } else {
+                    peticiones.SalidasGui.mensaje("Error el código de la Asignatura No Existe");
 
                 }
             } else {
@@ -307,11 +350,11 @@ public class AccionesApp {
 
         do {
             error = false;
-            codAlumno = peticiones.EntradasGui.pedirString("Indica el codigo del Alumno.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
+            codAlumno = peticiones.EntradasGui.pedirString(PEDIR_COD_ALUMNO, Alumno.MAX_SIZE_CODIGO, Alumno.MIN_SIZE_CODIGO, false);
             if ((alumno = Controller.obtenerAlumno(codAlumno)) != null) {
-                codAsignatura = peticiones.EntradasGui.pedirString("Indica el codigo de la Asignatura.\n Deben ser 4 caracteres y el ultimo una letra Mayúscula (Ej. ar1Z)", Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
+                codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
-                    dniProfesor = peticiones.EntradasGui.pedirString("Indica el Dni del Profesor. Sin espacio ni guiones, y con letra.", Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
+                    dniProfesor = peticiones.EntradasGui.pedirString(PEDIR_DNI_PROFESOR, Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
                     if ((profesor = Controller.obtenerProfesor(dniProfesor)) == null) {
                         Matricula matricula = new Matricula(profesor, asignatura, alumno);
                         if (Controller.altaMatricula(matricula)) {

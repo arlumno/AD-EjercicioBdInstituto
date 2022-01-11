@@ -196,3 +196,27 @@
 [02-01-2022 15:53:52] Aplicación finalizada
 [02-01-2022 15:53:53] Aplicación iniciada
 [02-01-2022 15:54:10] Aplicación finalizada
+[11-01-2022 18:36:12] Aplicación iniciada
+[11-01-2022 19:16:06] Consultando Listado de Alumnos
+[11-01-2022 19:16:09] Consultando Listado de Profesores
+[11-01-2022 19:16:16] Consultando Listado de Asignaturas
+[11-01-2022 19:55:33] Aplicación finalizada
+[11-01-2022 19:55:36] Aplicación iniciada
+[11-01-2022 19:55:39] Eliminada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:55:44] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 19:56:25] Creada base da datos
+[11-01-2022 20:00:03] Consultando Profesor dni: null
+[11-01-2022 20:00:05] Aplicación finalizada
+[11-01-2022 20:30:13] Aplicación iniciada

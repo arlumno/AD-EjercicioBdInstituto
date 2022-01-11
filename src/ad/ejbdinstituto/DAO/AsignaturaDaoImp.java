@@ -9,7 +9,8 @@ import ad.ejbdinstituto.ConexionBD;
 import ad.ejbdinstituto.EstructuraBD;
 import ad.ejbdinstituto.Exceptions.InvalidDataException;
 import java.sql.ResultSet;
-import java.sql.SQLException;import ad.ejbdinstituto.model.Asignatura;
+import java.sql.SQLException;
+import ad.ejbdinstituto.model.Asignatura;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  *
  * @author Ar
  */
-public class AsignaturaDaoImp implements ICrudExtended<Asignatura> {
+public class AsignaturaDaoImp implements ICrudExtended<Asignatura>, IValidateSql {
 
     @Override
     public boolean create(Asignatura asignatura) {

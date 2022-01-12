@@ -11,7 +11,6 @@ package ad.ejbdinstituto.model;
  */
 public class Matricula {
 
-    private String id;
     private Profesor profesor;
     private Asignatura asignatura;
     private Alumno alumno;
@@ -20,14 +19,6 @@ public class Matricula {
         this.profesor = profesor;
         this.asignatura = asignatura;
         this.alumno = alumno;
-    }
-
-    public String getId() {
-        return Integer.toString(asignatura.getId()) + Integer.toString(alumno.getId());
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Profesor getProfesor() {

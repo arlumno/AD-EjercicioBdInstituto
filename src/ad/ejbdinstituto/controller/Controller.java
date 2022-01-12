@@ -10,6 +10,7 @@ import ad.ejbdinstituto.DAO.AsignaturaDaoImp;
 import ad.ejbdinstituto.DAO.MatriculaDaoImp;
 import ad.ejbdinstituto.DAO.NotaDaoImp;
 import ad.ejbdinstituto.DAO.ProfesorDaoImp;
+import ad.ejbdinstituto.Exceptions.NoIdException;
 import ad.ejbdinstituto.model.Alumno;
 import ad.ejbdinstituto.model.Asignatura;
 import ad.ejbdinstituto.model.Matricula;
@@ -31,17 +32,13 @@ public class Controller {
 
     public static boolean borrarAlumno(Alumno alumno) {
         boolean resultado = false;
-        if (alumno.getId() != null) {
-            resultado = (new AlumnoDaoImp()).delete(alumno);
-        }
+        resultado = (new AlumnoDaoImp()).delete(alumno);
         return resultado;
     }
 
     public static boolean modificarAlumno(Alumno alumno) {
         boolean resultado = false;
-        if (alumno.getId() != null) {
-            resultado = (new AlumnoDaoImp()).update(alumno);
-        }
+        resultado = (new AlumnoDaoImp()).update(alumno);
         return resultado;
     }
 
@@ -77,17 +74,13 @@ public class Controller {
 
     public static boolean borrarAsignatura(Asignatura asignatura) {
         boolean resultado = false;
-        if (asignatura.getId() != null) {
-            resultado = (new AsignaturaDaoImp()).delete(asignatura);
-        }
+        resultado = (new AsignaturaDaoImp()).delete(asignatura);
         return resultado;
     }
 
     public static boolean modificarAsignatura(Asignatura asignatura) {
         boolean resultado = false;
-        if (asignatura.getId() != null) {
-            resultado = (new AsignaturaDaoImp()).update(asignatura);
-        }
+        resultado = (new AsignaturaDaoImp()).update(asignatura);
         return resultado;
     }
 
@@ -104,10 +97,24 @@ public class Controller {
         //TODO validar que datos requeridos existan (id).
         return (new NotaDaoImp()).create(nota);
     }
-    public static Nota obtenerNota(String asignatura, String alumno, LocalDate fecha){
-        return (new NotaDaoImp()).read(asignatura,alumno,fecha.toString());
+
+    public static Nota obtenerNota(Asignatura asignatura, Alumno alumno, LocalDate fecha) {
+        try {
+            return (new NotaDaoImp()).read(asignatura.getId(), alumno.getId(), fecha.toString());
+        } catch (NoIdException ex) {
+            return null;
+        }
 
     }
+    public static List<Nota> obtenerNotasAlumnos(Alumno alumno) {
+        try {
+            return (new NotaDaoImp()).readByAlumno(alumno.getId());
+        } catch (NoIdException ex) {
+            return null;
+        }
+
+    }
+
     public static boolean modificarNota(Nota nota) {
         //TODO validar que datos requeridos existan (id).
         return (new NotaDaoImp()).update(nota);

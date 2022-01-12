@@ -258,3 +258,141 @@
 [11-01-2022 20:56:32] Consultando Asignatura id: 123A
 [11-01-2022 20:56:37] Consultando Nota de : 123J - 123A - 2021-01-11
 [11-01-2022 20:56:46] Aplicación finalizada
+[12-01-2022 16:15:35] Aplicación iniciada
+[12-01-2022 16:42:16] Aplicación finalizada
+[12-01-2022 16:48:02] Aplicación iniciada
+[12-01-2022 16:50:09] Consultando Alumno id: null
+[12-01-2022 16:51:19] Consultando Listado de Alumnos
+[12-01-2022 16:51:25] Consultando Asignatura id: null
+[12-01-2022 16:51:27] Consultando Listado de Profesores
+[12-01-2022 16:51:52] Consultando Listado de Asignaturas
+[12-01-2022 16:52:12] Consultando Alumno id: 123J
+[12-01-2022 16:52:34] Consultando Asignatura id: 123A
+[12-01-2022 16:53:05] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 16:53:05] Consultando Asignatura id: 2
+[12-01-2022 16:57:03] Aplicación iniciada
+[12-01-2022 16:57:19] Consultando Alumno id: 123J
+[12-01-2022 16:57:22] Consultando Asignatura id: 123A
+[12-01-2022 16:57:27] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 16:57:27] Consultando Asignatura id: 2
+[12-01-2022 16:57:44] Aplicación finalizada
+[12-01-2022 16:57:45] Aplicación finalizada
+[12-01-2022 17:00:09] Aplicación iniciada
+[12-01-2022 17:00:16] Consultando Alumno id: 123J
+[12-01-2022 17:00:18] Consultando Asignatura id: 123A
+[12-01-2022 17:00:28] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:00:28] Consultando Asignatura id: 2
+[12-01-2022 17:04:37] Consultando Alumno id: 123J
+[12-01-2022 17:04:39] Consultando Asignatura id: 123A
+[12-01-2022 17:04:43] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:04:43] Consultando Asignatura id: 2
+[12-01-2022 17:06:47] Aplicación finalizada
+[12-01-2022 17:07:00] Aplicación iniciada
+[12-01-2022 17:07:09] Consultando Alumno id: 123J
+[12-01-2022 17:07:11] Consultando Asignatura id: 123A
+[12-01-2022 17:15:28] Aplicación finalizada
+[12-01-2022 17:16:39] Aplicación iniciada
+[12-01-2022 17:16:43] Consultando Alumno id: 123J
+[12-01-2022 17:16:45] Consultando Asignatura id: 123A
+[12-01-2022 17:20:14] Aplicación finalizada
+[12-01-2022 17:20:15] Aplicación iniciada
+[12-01-2022 17:20:27] Consultando Alumno id: 123J
+[12-01-2022 17:20:31] Consultando Asignatura id: 123A
+[12-01-2022 17:20:36] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:20:36] Consultando Asignatura id: 123A
+[12-01-2022 17:30:55] Aplicación iniciada
+[12-01-2022 17:31:00] Aplicación finalizada
+[12-01-2022 17:31:02] Aplicación finalizada
+[12-01-2022 17:31:05] Aplicación iniciada
+[12-01-2022 17:31:19] Consultando Alumno id: 123J
+[12-01-2022 17:31:22] Consultando Asignatura id: 123A
+[12-01-2022 17:32:29] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:32:29] Consultando Asignatura id: 123A
+[12-01-2022 17:33:35] Aplicación finalizada
+[12-01-2022 17:33:40] Aplicación iniciada
+[12-01-2022 17:33:50] Consultando Alumno id: 123J
+[12-01-2022 17:33:55] Consultando Asignatura id: 123A
+[12-01-2022 17:36:19] Aplicación iniciada
+[12-01-2022 17:36:25] Consultando Alumno id: 123J
+[12-01-2022 17:36:26] Consultando Asignatura id: 123A
+[12-01-2022 17:37:43] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:38:14] Consultando Asignatura id: 123A
+[12-01-2022 17:42:55] Aplicación iniciada
+[12-01-2022 17:42:59] Consultando Alumno id: 123J
+[12-01-2022 17:43:00] Consultando Asignatura id: 123A
+[12-01-2022 17:43:24] Consultando Nota de : 4 - 2 - 2021-10-11
+[12-01-2022 17:45:02] Aplicación iniciada
+[12-01-2022 17:45:07] Consultando Alumno id: 123J
+[12-01-2022 17:45:09] Consultando Asignatura id: 123A
+[12-01-2022 17:45:38] Consultando Nota de : 4 - 2 - 2021-10-11
+[12-01-2022 17:49:39] Aplicación iniciada
+[12-01-2022 17:49:45] Consultando Alumno id: 123J
+[12-01-2022 17:49:46] Consultando Asignatura id: 123A
+[12-01-2022 17:49:54] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:50:27] Aplicación finalizada
+[12-01-2022 17:50:29] Aplicación iniciada
+[12-01-2022 17:50:37] Consultando Alumno id: 123J
+[12-01-2022 17:50:40] Consultando Asignatura id: 123A
+[12-01-2022 17:50:58] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 17:52:39] Consultando Asignatura id: 123A
+[12-01-2022 17:58:15] Aplicación iniciada
+[12-01-2022 17:58:20] Consultando Alumno id: 123A
+[12-01-2022 17:58:24] Consultando Alumno id: 123J
+[12-01-2022 17:58:26] Consultando Asignatura id: 123A
+[12-01-2022 17:58:44] Consultando Nota de : 4 - 2 - 2022-01-11
+[12-01-2022 17:59:14] Aplicación iniciada
+[12-01-2022 17:59:20] Consultando Alumno id: 123J
+[12-01-2022 17:59:22] Consultando Asignatura id: 123A
+[12-01-2022 17:59:30] Consultando Nota de : 4 - 2 - 2022-01-11
+[12-01-2022 17:59:52] Aplicación iniciada
+[12-01-2022 17:59:56] Consultando Alumno id: 123J
+[12-01-2022 17:59:57] Consultando Asignatura id: 123A
+[12-01-2022 18:00:03] Consultando Nota de : 4 - 2 - 2022-01-11
+[12-01-2022 18:00:27] Aplicación iniciada
+[12-01-2022 18:00:33] Consultando Alumno id: 123J
+[12-01-2022 18:00:34] Consultando Asignatura id: 123A
+[12-01-2022 18:00:39] Consultando Nota de : 4 - 2 - 2022-01-11
+[12-01-2022 18:01:13] Aplicación iniciada
+[12-01-2022 18:01:18] Consultando Alumno id: 123J
+[12-01-2022 18:01:19] Consultando Asignatura id: 123A
+[12-01-2022 18:01:24] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 18:01:58] Consultando Asignatura id: 123A
+[12-01-2022 18:02:41] Consultando Alumno id: 123J
+[12-01-2022 18:11:58] Aplicación iniciada
+[12-01-2022 18:12:02] Consultando Alumno id: 123J
+[12-01-2022 18:12:05] Consultando Asignatura id: 123A
+[12-01-2022 18:12:11] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 18:12:11] Consultando Asignatura id: 123A
+[12-01-2022 18:12:11] Consultando Alumno id: 123J
+[12-01-2022 18:12:40] Error en: UPDATE notas SET nota ='7.0' WHERE id_alumno = '4' and if_asignatura = '2'
+[12-01-2022 18:12:49] Consultando Alumno id: null
+[12-01-2022 18:12:52] Aplicación finalizada
+[12-01-2022 18:12:54] Aplicación iniciada
+[12-01-2022 18:13:07] Consultando Alumno id: 123J
+[12-01-2022 18:13:08] Consultando Asignatura id: 123A
+[12-01-2022 18:13:12] Consultando Nota de : 4 - 2 - 2021-01-11
+[12-01-2022 18:13:12] Consultando Asignatura id: 123A
+[12-01-2022 18:13:12] Consultando Alumno id: 123J
+[12-01-2022 18:13:14] Modificado nota de alunmnoArmando2
+[12-01-2022 18:27:53] Aplicación iniciada
+[12-01-2022 18:27:56] Consultando Listado de Alumnos
+[12-01-2022 18:27:56] Consultando Notas de : 3
+[12-01-2022 18:27:56] Consultando Notas de : 4
+[12-01-2022 18:27:56] Consultando Asignatura id: 123A
+[12-01-2022 18:27:56] Consultando Alumno id: 123J
+[12-01-2022 18:28:51] Aplicación finalizada
+[12-01-2022 18:28:53] Aplicación iniciada
+[12-01-2022 18:28:55] Consultando Listado de Alumnos
+[12-01-2022 18:28:55] Consultando Notas de : 3
+[12-01-2022 18:28:55] Consultando Notas de : 4
+[12-01-2022 18:28:55] Consultando Asignatura id: 123A
+[12-01-2022 18:28:55] Consultando Alumno id: 123J
+[12-01-2022 18:29:44] Aplicación finalizada
+[12-01-2022 18:29:45] Aplicación finalizada
+[12-01-2022 18:29:46] Aplicación iniciada
+[12-01-2022 18:29:50] Consultando Listado de Alumnos
+[12-01-2022 18:29:50] Consultando Notas de : 3
+[12-01-2022 18:29:50] Consultando Notas de : 4
+[12-01-2022 18:29:50] Consultando Asignatura id: 123A
+[12-01-2022 18:29:50] Consultando Alumno id: 123J
+[12-01-2022 18:30:26] Aplicación finalizada

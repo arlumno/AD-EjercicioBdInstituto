@@ -7,6 +7,7 @@ package ad.ejbdinstituto.DAO;
 
 import ad.ejbdinstituto.ConexionBD;
 import ad.ejbdinstituto.EstructuraBD;
+import ad.ejbdinstituto.Exceptions.NoIdException;
 import ad.ejbdinstituto.model.Matricula;
 import java.util.List;
 
@@ -17,9 +18,14 @@ import java.util.List;
 public class MatriculaDaoImp implements ICrudExtended<Matricula>{
 
     @Override
-    public boolean create(Matricula matricula) {
-        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_MATRICULAS + "(id_alumno, id_asignatura, dni_profesor) VALUES ('" + matricula.getAlumno().getId() + "','" + matricula.getAsignatura().getId()+ "','" + matricula.getProfesor().getDni()+ "')";
-        return ConexionBD.executeSql(sql, "Creada Matricula "+ matricula.getAsignatura().getCodigo() + " - "+ matricula.getAlumno().getNombre());
+    public boolean create(Matricula matricula){
+        String sql;
+        try {
+            sql = "INSERT INTO " + EstructuraBD.DB_TABLE_MATRICULAS + "(id_alumno, id_asignatura, dni_profesor) VALUES ('" + matricula.getAlumno().getId() + "','" + matricula.getAsignatura().getId()+ "','" + matricula.getProfesor().getDni()+ "')";
+            return ConexionBD.executeSql(sql, "Creada Matricula "+ matricula.getAsignatura().getCodigo() + " - "+ matricula.getAlumno().getNombre());
+        } catch (NoIdException ex) {
+            return false;
+        }
     }
 
     @Override

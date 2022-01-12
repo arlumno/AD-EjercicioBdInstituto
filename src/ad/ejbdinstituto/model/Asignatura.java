@@ -6,39 +6,46 @@
 package ad.ejbdinstituto.model;
 
 import ad.ejbdinstituto.Exceptions.InvalidDataException;
+import ad.ejbdinstituto.Exceptions.NoIdException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author a20armandocb
  */
 public class Asignatura {
-    public static int MAX_SIZE_NOMBRE = 50; 
-    public static int MIN_SIZE_NOMBRE = 3; 
-    public static int MAX_SIZE_CODIGO = 4; 
-    public static int MIN_SIZE_CODIGO = 4; 
-    
+
+    public static int MAX_SIZE_NOMBRE = 50;
+    public static int MIN_SIZE_NOMBRE = 3;
+    public static int MAX_SIZE_CODIGO = 4;
+    public static int MIN_SIZE_CODIGO = 4;
+
     private Integer id;
     private String codigo;
     private String ciclo;
-    
-    
-    public Asignatura(int id, String codigo, String ciclo) throws InvalidDataException{
+
+    public Asignatura(int id, String codigo, String ciclo) throws InvalidDataException {
         setCodigo(codigo);
         setCiclo(ciclo);
         setId(id);
     }
-    
-    public Asignatura(String codigo, String ciclo) throws InvalidDataException{
+
+    public Asignatura(String codigo, String ciclo) throws InvalidDataException {
         setCodigo(codigo);
         setCiclo(ciclo);
     }
-     
-    private void  validateCodigo(String codigo) throws InvalidDataException{
-        if(!utilidades.Utils.validarString(codigo, "...[A-Z]")){
+
+    private void validateCodigo(String codigo) throws InvalidDataException {
+        if (!utilidades.Utils.validarString(codigo, "...[A-Z]")) {
             throw new InvalidDataException("Código no válido");
         }
     }
-    public Integer getId() {
+
+    public int getId() throws NoIdException {
+        if (id == null) {
+            throw new NoIdException("La asignatura no tiene una id vinculada a la base de datos");
+        }
         return id;
     }
 
@@ -50,7 +57,7 @@ public class Asignatura {
         return codigo;
     }
 
-    public void setCodigo(String codigo) throws InvalidDataException{
+    public void setCodigo(String codigo) throws InvalidDataException {
         validateCodigo(codigo);
         this.codigo = codigo;
     }
@@ -65,7 +72,13 @@ public class Asignatura {
 
     @Override
     public String toString() {
-        return "Id: "+ getId() + " || Código: " + getCodigo() + " || Ciclo: " + getCiclo(); //To change body of generated methods, choose Tools | Templates.
+        String result;
+        try {
+            result = "Id: " + getId() + " || Código: " + getCodigo() + " || Ciclo: " + getCiclo();
+        } catch (NoIdException ex) {
+            result = "Id: --- || Código: " + getCodigo() + " || Ciclo: " + getCiclo();
+        }
+        return result;
     }
-    
+
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface ICrudNota {
     public boolean create(Nota nota);
-    public Nota read(String idAsignatura, String idAlumno, String fecha);
+    public Nota read(int idAsignatura, int idAlumno, String fecha);
     public List<Nota> readAll();
     public boolean update(Nota nota);
     public boolean delete(Nota nota);       

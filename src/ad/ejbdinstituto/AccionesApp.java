@@ -13,7 +13,7 @@ import ad.ejbdinstituto.model.Matricula;
 import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
 import java.time.LocalDate;
-import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 import peticiones.EntradasGui;
 
@@ -101,9 +101,16 @@ public class AccionesApp {
 
     public void listarAlumnos() {
         List<Alumno> alumnos = Controller.obtenerAlumnos();
+        List<Nota> notasAlumno;
         StringBuilder listadoAlumnos = new StringBuilder();
         for (Alumno alumno : alumnos) {
             listadoAlumnos.append(alumno.toString() + "\n");
+            notasAlumno = Controller.obtenerNotasAlumnos(alumno);
+            for (Nota nota : notasAlumno) {
+                listadoAlumnos.append("|-->" + nota.toString() + "\n");                
+            }
+            
+           
         }
         peticiones.SalidasGui.bloqueTexto("Alumnos", listadoAlumnos.toString());
     }
@@ -208,7 +215,7 @@ public class AccionesApp {
         for (Profesor profesor : profesores) {
             listadoProfesors.append(profesor.toString() + "\n");
         }
-        peticiones.SalidasGui.bloqueTexto("Profesores",listadoProfesors.toString());
+        peticiones.SalidasGui.bloqueTexto("Profesores", listadoProfesors.toString());
     }
 
     public void altaAsignatura() {
@@ -303,7 +310,6 @@ public class AccionesApp {
         boolean error;
         Alumno alumno = null;
         Asignatura asignatura = null;
-        Profesor profesor = null;
         String codAlumno = null;
         String codAsignatura = null;
         LocalDate fecha;
@@ -315,9 +321,9 @@ public class AccionesApp {
                 codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
                     fecha = EntradasGui.pedirLocalDate("Indica la fecha de la nota");
-                    if (Controller.obtenerNota(codAsignatura, codAlumno, fecha) != null) {
-                           puntuacion = EntradasGui.pedirFloat("Indica la nueva nota");
-                        if (Controller.modificarNota(new Nota(asignatura, alumno, fecha ,puntuacion))) {
+                    if (Controller.obtenerNota(asignatura, alumno, fecha) != null) {
+                        puntuacion = EntradasGui.pedirFloat("Indica la nueva nota");
+                        if (Controller.modificarNota(new Nota(asignatura, alumno, fecha, puntuacion))) {
                             peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
                         } else {
                             peticiones.SalidasGui.mensaje("Error al realizar la Operación");

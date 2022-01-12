@@ -59,6 +59,7 @@ public class ConexionBD {
             }
         } catch (SQLException e) {
             peticiones.SalidasGui.mensaje("Error: " + e.getMessage() + "\nStatement:\n " + sql);            
+            utilidades.Log.getInstance().addToLog("Error en: " + sql);                
             resultado = false;
         } catch (NullPointerException e){            
             resultado = false;

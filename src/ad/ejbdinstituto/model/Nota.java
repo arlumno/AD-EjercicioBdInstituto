@@ -12,7 +12,7 @@ import java.time.LocalDate;
  * @author a20armandocb
  */
 public class Nota {
-    private String id;
+
     private Asignatura asignatura;
     private Alumno alumno;
     private LocalDate fecha;
@@ -24,11 +24,7 @@ public class Nota {
         this.fecha = fecha;
         this.nota = nota;
     }
-    
-    public String getId() {
-        return Integer.toString(asignatura.getId()) + Integer.toString(alumno.getId()) + fecha.toString();
-    }
-    
+
     public Asignatura getAsignatura() {
         return asignatura;
     }
@@ -45,7 +41,6 @@ public class Nota {
         this.alumno = alumno;
     }
 
-
     public LocalDate getFecha() {
         return fecha;
     }
@@ -61,6 +56,10 @@ public class Nota {
     public void setNota(float nota) {
         this.nota = nota;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Nota{" + "asignatura=" + asignatura + ", alumno=" + alumno + ", fecha=" + fecha + ", nota=" + nota + '}';
+    }
+ 
 }

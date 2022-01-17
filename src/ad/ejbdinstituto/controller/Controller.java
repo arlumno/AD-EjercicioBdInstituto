@@ -18,7 +18,6 @@ import ad.ejbdinstituto.model.Nota;
 import ad.ejbdinstituto.model.Profesor;
 import java.time.LocalDate;
 import java.util.List;
-
 /**
  *
  * @author Arsito
@@ -67,6 +66,10 @@ public class Controller {
         return (new ProfesorDaoImp()).readAll();
     }
 
+    public static List<Asignatura> obtenerAsignaturasProfesor(Profesor profesor) {
+        return (new AsignaturaDaoImp()).readByProfesor(profesor.getDni());
+    }
+
     //ASIGNATURA
     public static boolean crearAsignatura(Asignatura asignatura) {
         return (new AsignaturaDaoImp()).create(asignatura);
@@ -92,6 +95,14 @@ public class Controller {
         return (new AsignaturaDaoImp()).readAll();
     }
 
+    public static List<Profesor> obtenerProfesoresAsignatura(Asignatura asignatura) {
+        try {
+            return (new ProfesorDaoImp()).readByAsignatura(asignatura.getId());
+        } catch (NoIdException ex) {
+            return null;
+        }
+    }
+
     //NOTAS    
     public static boolean crearNota(Nota nota) {
         //TODO validar que datos requeridos existan (id).
@@ -106,7 +117,8 @@ public class Controller {
         }
 
     }
-    public static List<Nota> obtenerNotasAlumnos(Alumno alumno) {
+
+    public static List<Nota> obtenerNotasAlumno(Alumno alumno) {
         try {
             return (new NotaDaoImp()).readByAlumno(alumno.getId());
         } catch (NoIdException ex) {
@@ -126,4 +138,5 @@ public class Controller {
         return (new MatriculaDaoImp()).create(matricula);
 
     }
+
 }

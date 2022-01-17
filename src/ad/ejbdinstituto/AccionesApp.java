@@ -104,8 +104,8 @@ public class AccionesApp {
         List<Nota> notasAlumno;
         StringBuilder listadoAlumnos = new StringBuilder();
         for (Alumno alumno : alumnos) {
-            listadoAlumnos.append(alumno.toString() + "\n");
-            notasAlumno = Controller.obtenerNotasAlumnos(alumno);
+            listadoAlumnos.append("\n" + alumno.toString() + "\n");
+            notasAlumno = Controller.obtenerNotasAlumno(alumno);
             for (Nota nota : notasAlumno) {
                 listadoAlumnos.append("|-->" + nota.toString() + "\n");                
             }
@@ -211,11 +211,17 @@ public class AccionesApp {
 
     public void listarProfesores() {
         List<Profesor> profesores = Controller.obtenerProfesores();
-        StringBuilder listadoProfesors = new StringBuilder();
+        List<Asignatura> asignaturasProfesor;
+        StringBuilder listadoProfesores = new StringBuilder();
         for (Profesor profesor : profesores) {
-            listadoProfesors.append(profesor.toString() + "\n");
+            listadoProfesores.append("\n" +profesor.toString() + "\n");
+            
+            asignaturasProfesor = Controller.obtenerAsignaturasProfesor(profesor);
+            for (Asignatura asignatura : asignaturasProfesor) {
+                listadoProfesores.append("|-->" + asignatura.toString() + "\n");                
+            }
         }
-        peticiones.SalidasGui.bloqueTexto("Profesores", listadoProfesors.toString());
+        peticiones.SalidasGui.bloqueTexto("Profesores", listadoProfesores.toString());
     }
 
     public void altaAsignatura() {
@@ -259,9 +265,17 @@ public class AccionesApp {
 
     public void listarAsignaturas() {
         List<Asignatura> asignaturas = Controller.obtenerAsignaturas();
+        List<Profesor> profesoresAsignatura;
+        
         StringBuilder listadoAsignaturas = new StringBuilder();
         for (Asignatura asignatura : asignaturas) {
-            listadoAsignaturas.append(asignatura.toString() + "\n");
+            listadoAsignaturas.append("\n" +asignatura.toString() + "\n");
+            
+            profesoresAsignatura = Controller.obtenerProfesoresAsignatura(asignatura);
+            for (Profesor profesor : profesoresAsignatura) {
+                listadoAsignaturas.append("|-->" + profesor.toString() + "\n");                
+            }
+            
         }
         peticiones.SalidasGui.bloqueTexto("Asignaturas", listadoAsignaturas.toString());
     }
@@ -361,7 +375,7 @@ public class AccionesApp {
                 codAsignatura = peticiones.EntradasGui.pedirString(PEDIR_COD_ASIGNATURA, Asignatura.MAX_SIZE_CODIGO, Asignatura.MIN_SIZE_CODIGO, false);
                 if ((asignatura = Controller.obtenerAsignatura(codAsignatura)) != null) {
                     dniProfesor = peticiones.EntradasGui.pedirString(PEDIR_DNI_PROFESOR, Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
-                    if ((profesor = Controller.obtenerProfesor(dniProfesor)) == null) {
+                    if ((profesor = Controller.obtenerProfesor(dniProfesor)) != null) {
                         Matricula matricula = new Matricula(profesor, asignatura, alumno);
                         if (Controller.altaMatricula(matricula)) {
                             peticiones.SalidasGui.mensaje("Operación realizada con Éxito");

@@ -32,22 +32,24 @@ public class ProfesorDaoImp implements ICrudExtended<Profesor>, IValidateSql {
         ResultSet rs = null;
         try {
             String sql = "SELECT dni, nombre, titulacion FROM " + EstructuraBD.DB_TABLE_PROFESORES + " WHERE dni= '" + validate(id) + "'";
+            System.out.println(sql);
             rs = ConexionBD.executeQuerySql(sql, "Consultando Profesor dni: " + id);
             if (rs.next()) {
-                profesor = new Profesor(rs.getString(1), rs.getString(2), rs.getString(3));
+                String dni = rs.getString(1);
+                String nombre = rs.getString(2);
+                String titulacion = rs.getString(3);
+                profesor = new Profesor(dni, nombre, titulacion);
+                //   profesor = new Profesor(rs.getString(1), rs.getString(2), rs.getString(3));
             }
         } catch (SQLException ex) {
             peticiones.SalidasGui.mensaje("Error al consultar Profesor");
         }
-//        catch (InvalidDataException ex) {
-//            peticiones.SalidasGui.mensaje("Corrupción en los datos del profesor");
-//        }
         return profesor;
     }
 
     @Override
     public List<Profesor> readAll() {
-         List<Profesor> profesores = new ArrayList<Profesor>();
+        List<Profesor> profesores = new ArrayList<Profesor>();
         ResultSet rs = null;
         try {
             String sql = "SELECT dni, nombre, titulacion FROM " + EstructuraBD.DB_TABLE_PROFESORES;
@@ -58,9 +60,6 @@ public class ProfesorDaoImp implements ICrudExtended<Profesor>, IValidateSql {
         } catch (SQLException ex) {
             peticiones.SalidasGui.mensaje("Error al consultar Profesores");
         }
-//        catch (InvalidDataException ex) {
-//            peticiones.SalidasGui.mensaje("Corrupción en los datos del profesor");
-//        }
         return profesores;
     }
 
@@ -72,8 +71,27 @@ public class ProfesorDaoImp implements ICrudExtended<Profesor>, IValidateSql {
     @Override
     public boolean delete(Profesor profesor) {
         boolean resultado = false;
-        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_PROFESORES + " WHERE dni = '" + profesor.getDni()+ "'";
+        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_PROFESORES + " WHERE dni = '" + profesor.getDni() + "'";
         return ConexionBD.executeSql(sql, "Eliminado Profesor " + profesor.getNombre());
+    }
+
+    public List<Profesor> readByAsignatura(int id) {
+        List<Profesor> profesores = new ArrayList<Profesor>();
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT pr.dni, pr.nombre, pr.titulacion "
+                    + "FROM " + EstructuraBD.DB_TABLE_PROFESORES + " AS pr "
+                    + "LEFT JOIN " + EstructuraBD.DB_TABLE_MATRICULAS
+                    + " AS ma ON ma.dni_profesor = pr.dni "
+                    + "WHERE ma.id_asignatura =  '" + id + "'";
+            rs = ConexionBD.executeQuerySql(sql, "Consultando Listado de Profesores");
+            while (rs.next()) {
+                profesores.add(new Profesor(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
+        } catch (SQLException ex) {
+            peticiones.SalidasGui.mensaje("Error al consultar Profesores");
+        }
+        return profesores;
     }
 
 }

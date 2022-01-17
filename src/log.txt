@@ -396,3 +396,86 @@
 [12-01-2022 18:29:50] Consultando Asignatura id: 123A
 [12-01-2022 18:29:50] Consultando Alumno id: 123J
 [12-01-2022 18:30:26] Aplicación finalizada
+[17-01-2022 20:42:36] Aplicación iniciada
+[17-01-2022 20:43:34] Consultando Listado de Alumnos
+[17-01-2022 20:43:34] Consultando Notas de : 3
+[17-01-2022 20:43:34] Consultando Notas de : 4
+[17-01-2022 20:43:34] Consultando Asignatura id: 123A
+[17-01-2022 20:43:34] Consultando Alumno id: 123J
+[17-01-2022 20:43:42] Consultando Alumno id: 123J
+[17-01-2022 20:43:53] Aplicación finalizada
+[17-01-2022 20:44:20] Aplicación iniciada
+[17-01-2022 20:44:23] Consultando Listado de Profesores
+[17-01-2022 21:00:00] Aplicación finalizada
+[17-01-2022 21:00:04] Aplicación iniciada
+[17-01-2022 21:00:07] Consultando Listado de Profesores
+[17-01-2022 21:00:39] Aplicación finalizada
+[17-01-2022 21:00:41] Aplicación iniciada
+[17-01-2022 21:00:43] Consultando Listado de Profesores
+[17-01-2022 21:01:31] Aplicación finalizada
+[17-01-2022 21:01:33] Aplicación iniciada
+[17-01-2022 21:01:35] Consultando Listado de Profesores
+[17-01-2022 21:01:35] Consultando Listado de Asignaturas
+[17-01-2022 21:01:35] Consultando Listado de Asignaturas
+[17-01-2022 21:02:46] Consultando Listado de Asignaturas
+[17-01-2022 21:03:01] Consultando Alumno id: 123J
+[17-01-2022 21:03:08] Consultando Asignatura id: abcZ
+[17-01-2022 21:03:15] Consultando Profesor dni: 12345678Z
+[17-01-2022 21:03:41] Consultando Alumno id: 123J
+[17-01-2022 21:03:54] Consultando Asignatura id: abcZ
+[17-01-2022 21:03:57] Consultando Profesor dni: 12345678Z
+[17-01-2022 21:07:41] Aplicación iniciada
+[17-01-2022 21:07:49] Consultando Alumno id: 123J
+[17-01-2022 21:07:54] Consultando Asignatura id: abcZ
+[17-01-2022 21:08:03] Consultando Profesor dni: 12345678Z
+[17-01-2022 21:08:09] Aplicación finalizada
+[17-01-2022 21:08:12] Aplicación finalizada
+[17-01-2022 21:11:05] Aplicación iniciada
+[17-01-2022 21:11:20] Consultando Alumno id: 123J
+[17-01-2022 21:11:24] Consultando Asignatura id: abcZ
+[17-01-2022 21:11:28] Consultando Profesor dni: 12345678Z
+[17-01-2022 21:13:16] Aplicación iniciada
+[17-01-2022 21:13:22] Consultando Alumno id: abcZ
+[17-01-2022 21:13:27] Consultando Alumno id: 123J
+[17-01-2022 21:13:30] Consultando Asignatura id: abcZ
+[17-01-2022 21:13:33] Consultando Profesor dni: 12345678Z
+[17-01-2022 21:13:33] Creada Matricula abcZ - Armando2
+[17-01-2022 21:13:50] Consultando Alumno id: null
+[17-01-2022 21:14:02] Consultando Asignatura id: null
+[17-01-2022 21:14:04] Consultando Listado de Asignaturas
+[17-01-2022 21:14:09] Consultando Listado de Alumnos
+[17-01-2022 21:14:09] Consultando Notas de : 3
+[17-01-2022 21:14:09] Consultando Notas de : 4
+[17-01-2022 21:14:09] Consultando Asignatura id: 123A
+[17-01-2022 21:14:09] Consultando Alumno id: 123J
+[17-01-2022 21:14:22] Consultando Alumno id: 123J
+[17-01-2022 21:14:27] Consultando Asignatura id: 123A
+[17-01-2022 21:14:29] Consultando Profesor dni: 12345678Z
+[17-01-2022 21:14:29] Creada Matricula 123A - Armando2
+[17-01-2022 21:14:33] Consultando Listado de Profesores
+[17-01-2022 21:14:33] Consultando Listado de Asignaturas
+[17-01-2022 21:14:33] Consultando Listado de Asignaturas
+[17-01-2022 21:14:41] Aplicación finalizada
+[17-01-2022 21:15:23] Aplicación iniciada
+[17-01-2022 21:15:25] Consultando Listado de Alumnos
+[17-01-2022 21:15:25] Consultando Notas de : 3
+[17-01-2022 21:15:25] Consultando Notas de : 4
+[17-01-2022 21:15:25] Consultando Asignatura id: 123A
+[17-01-2022 21:15:25] Consultando Alumno id: 123J
+[17-01-2022 21:27:06] Aplicación finalizada
+[17-01-2022 21:28:08] Aplicación iniciada
+[17-01-2022 21:28:10] Consultando Listado de Asignaturas
+[17-01-2022 21:28:10] Consultando Listado de Profesores
+[17-01-2022 21:28:10] Consultando Listado de Profesores
+[17-01-2022 21:29:40] Aplicación iniciada
+[17-01-2022 21:29:51] Consultando Listado de Asignaturas
+[17-01-2022 21:29:51] Consultando Listado de Profesores
+[17-01-2022 21:29:51] Consultando Listado de Profesores
+[17-01-2022 21:29:54] Consultando Listado de Alumnos
+[17-01-2022 21:29:54] Consultando Notas de : 3
+[17-01-2022 21:29:54] Consultando Notas de : 4
+[17-01-2022 21:29:54] Consultando Asignatura id: 123A
+[17-01-2022 21:29:54] Consultando Alumno id: 123J
+[17-01-2022 21:29:58] Consultando Listado de Profesores
+[17-01-2022 21:29:58] Consultando Listado de Asignaturas
+[17-01-2022 21:29:58] Consultando Listado de Asignaturas

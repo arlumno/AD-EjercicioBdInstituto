@@ -7,8 +7,7 @@ package ad.ejbdinstituto.model;
 
 import ad.ejbdinstituto.Exceptions.InvalidDataException;
 import ad.ejbdinstituto.Exceptions.NoIdException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *

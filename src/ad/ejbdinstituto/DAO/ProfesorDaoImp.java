@@ -22,7 +22,7 @@ public class ProfesorDaoImp implements ICrudExtended<Profesor>, IValidateSql {
 
     @Override
     public boolean create(Profesor profesor) {
-        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_PROFESORES + "(dni, nombre, titulacion) VALUES ('" + profesor.getDni() + "','" + profesor.getNombre() + "','" + profesor.getTitulacion() + "')";
+        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_PROFESORES + "(dni, nombre, titulacion) VALUES ('" + validate(profesor.getDni()) + "','" + validate(profesor.getNombre()) + "','" + validate(profesor.getTitulacion()) + "')";
         return ConexionBD.executeSql(sql, "Creado Profesor " + profesor.getNombre());
     }
 
@@ -71,7 +71,7 @@ public class ProfesorDaoImp implements ICrudExtended<Profesor>, IValidateSql {
     @Override
     public boolean delete(Profesor profesor) {
         boolean resultado = false;
-        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_PROFESORES + " WHERE dni = '" + profesor.getDni() + "'";
+        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_PROFESORES + " WHERE dni = '" + validate(profesor.getDni()) + "'";
         return ConexionBD.executeSql(sql, "Eliminado Profesor " + profesor.getNombre());
     }
 

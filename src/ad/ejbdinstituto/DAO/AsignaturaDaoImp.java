@@ -22,7 +22,7 @@ public class AsignaturaDaoImp implements ICrudExtended<Asignatura>, IValidateSql
     
     @Override
     public boolean create(Asignatura asignatura) {
-        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_ASIGNATURAS + "(cod_asignatura, ciclo) VALUES ('" + asignatura.getCodigo() + "','" + asignatura.getCiclo() + "')";
+        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_ASIGNATURAS + "(cod_asignatura, ciclo) VALUES ('" + validate(asignatura.getCodigo()) + "','" + validate(asignatura.getCiclo()) + "')";
         return ConexionBD.executeSql(sql, "Creado Asignatura código:" + asignatura.getCodigo());
     }
     
@@ -65,14 +65,14 @@ public class AsignaturaDaoImp implements ICrudExtended<Asignatura>, IValidateSql
     @Override
     public boolean update(Asignatura asignatura) {
         boolean resultado = false;
-        String sql = "UPDATE " + EstructuraBD.DB_TABLE_ASIGNATURAS + " SET ciclo ='" + validate(asignatura.getCiclo()) + "' WHERE cod_asignatura = '" + asignatura.getCodigo() + "'";
+        String sql = "UPDATE " + EstructuraBD.DB_TABLE_ASIGNATURAS + " SET ciclo ='" + validate(asignatura.getCiclo()) + "' WHERE cod_asignatura = '" + validate(asignatura.getCodigo()) + "'";
         return ConexionBD.executeSql(sql, "Modificado Asignatura " + asignatura.getCodigo());
     }
     
     @Override
     public boolean delete(Asignatura asignatura) {
         boolean resultado = false;
-        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_ASIGNATURAS + " WHERE cod_asignatura = '" + asignatura.getCodigo() + "'";
+        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_ASIGNATURAS + " WHERE cod_asignatura = '" + validate(asignatura.getCodigo()) + "'";
         return ConexionBD.executeSql(sql, "Eliminado Asignatura " + asignatura.getCodigo());
     }
     

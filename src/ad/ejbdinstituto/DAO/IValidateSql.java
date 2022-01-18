@@ -11,7 +11,10 @@ package ad.ejbdinstituto.DAO;
  */
 public interface IValidateSql {
     default public String validate(String string){
-        //NotaODO - evitar injección sql 
-        return string;
+        String textoLimpio = string;
+        textoLimpio = textoLimpio.replace("'", "");
+        textoLimpio = textoLimpio.replace("\"", "");
+        textoLimpio = textoLimpio.replace("\\", "");
+        return textoLimpio;
     }
 }

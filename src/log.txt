@@ -479,3 +479,90 @@
 [17-01-2022 21:29:58] Consultando Listado de Profesores
 [17-01-2022 21:29:58] Consultando Listado de Asignaturas
 [17-01-2022 21:29:58] Consultando Listado de Asignaturas
+[18-01-2022 18:37:22] Aplicación iniciada
+[18-01-2022 18:38:00] Consultando Listado de Alumnos
+[18-01-2022 18:38:01] Consultando Notas de : 3
+[18-01-2022 18:38:01] Consultando Notas de : 4
+[18-01-2022 18:38:01] Consultando Asignatura id: 123A
+[18-01-2022 18:38:01] Consultando Alumno id: 123J
+[18-01-2022 18:38:27] Consultando Alumno id: 123J
+[18-01-2022 18:38:43] Consultando Asignatura id: 123A
+[18-01-2022 18:38:50] Consultando Nota de : 4 - 2 - 2021-01-11
+[18-01-2022 18:38:50] Consultando Asignatura id: 123A
+[18-01-2022 18:38:50] Consultando Alumno id: 123J
+[18-01-2022 18:38:54] Modificado nota de alunmnoArmando2
+[18-01-2022 18:39:00] Consultando Listado de Alumnos
+[18-01-2022 18:39:00] Consultando Notas de : 3
+[18-01-2022 18:39:00] Consultando Notas de : 4
+[18-01-2022 18:39:00] Consultando Asignatura id: 123A
+[18-01-2022 18:39:00] Consultando Alumno id: 123J
+[18-01-2022 18:39:07] Consultando Alumno id: 123J
+[18-01-2022 18:39:21] Aplicación finalizada
+[18-01-2022 18:46:46] Aplicación iniciada
+[18-01-2022 18:47:35] Consultando Profesor dni: 36037769N
+[18-01-2022 18:48:03] Error en: INSERT INTO profesores(dni, nombre, titulacion) VALUES ('36037769N','Jose\nDoble"coma'','Todologo')
+[18-01-2022 19:02:37] Aplicación iniciada
+[18-01-2022 19:02:50] Consultando Profesor dni: 36037769N
+[18-01-2022 19:03:12] Creado Profesor Ted
+[18-01-2022 19:03:20] Consultando Listado de Profesores
+[18-01-2022 19:03:20] Consultando Listado de Asignaturas
+[18-01-2022 19:03:20] Consultando Listado de Asignaturas
+[18-01-2022 19:03:21] Consultando Listado de Asignaturas
+[18-01-2022 19:08:11] Aplicación iniciada
+[18-01-2022 19:08:15] Consultando Listado de Alumnos
+[18-01-2022 19:08:15] Consultando Notas de : 3
+[18-01-2022 19:08:15] Consultando Notas de : 4
+[18-01-2022 19:08:15] Consultando Asignatura id: 123A
+[18-01-2022 19:08:15] Consultando Alumno id: 123J
+[18-01-2022 19:09:15] Aplicación iniciada
+[18-01-2022 19:10:19] Aplicación iniciada
+[18-01-2022 19:10:50] Consultando Listado de Asignaturas
+[18-01-2022 19:10:50] Consultando Listado de Profesores
+[18-01-2022 19:10:50] Consultando Listado de Profesores
+[18-01-2022 19:10:55] Consultando Asignatura id: 123A
+[18-01-2022 19:11:00] Consultando Listado de Profesores
+[18-01-2022 19:11:00] Consultando Listado de Asignaturas
+[18-01-2022 19:11:00] Consultando Listado de Asignaturas
+[18-01-2022 19:11:00] Consultando Listado de Asignaturas
+[18-01-2022 19:11:04] Consultando Listado de Alumnos
+[18-01-2022 19:11:04] Consultando Notas de : 3
+[18-01-2022 19:11:04] Consultando Notas de : 4
+[18-01-2022 19:11:04] Consultando Asignatura id: 123A
+[18-01-2022 19:11:04] Consultando Alumno id: 123J
+[18-01-2022 19:11:11] Consultando Listado de Alumnos
+[18-01-2022 19:11:11] Consultando Notas de : 3
+[18-01-2022 19:11:11] Consultando Notas de : 4
+[18-01-2022 19:11:11] Consultando Asignatura id: 123A
+[18-01-2022 19:11:11] Consultando Alumno id: 123J
+[18-01-2022 19:12:37] Consultando Alumno id: 123J
+[18-01-2022 19:14:17] Error en: DELETE FROM alumnos WHERE cod_alumno = '123J; DELETE FROM profesores_alumnos_asignaturas WHERE id_alumno = '4'DELETE FROM notas WHERE id_alumno = '4'
+[18-01-2022 19:14:21] Aplicación finalizada
+[18-01-2022 19:15:37] Aplicación finalizada
+[18-01-2022 19:15:39] Aplicación iniciada
+[18-01-2022 19:15:47] Consultando Alumno id: 123J
+[18-01-2022 19:16:05] Error en: DELETE FROM alumnos WHERE cod_alumno = '123J; DELETE FROM profesores_alumnos_asignaturas WHERE id_alumno = '4'; DELETE FROM notas WHERE id_alumno = '4'; 
+[18-01-2022 19:16:07] Aplicación finalizada
+[18-01-2022 19:16:09] Aplicación iniciada
+[18-01-2022 19:16:13] Consultando Alumno id: 123J
+[18-01-2022 19:16:19] Error en: DELETE FROM alumnos WHERE cod_alumno = '123J' ; DELETE FROM profesores_alumnos_asignaturas WHERE id_alumno = '4'; DELETE FROM notas WHERE id_alumno = '4'; 
+[18-01-2022 19:16:22] Aplicación finalizada
+[18-01-2022 19:21:17] Aplicación iniciada
+[18-01-2022 19:21:21] Consultando Alumno id: 123J
+[18-01-2022 19:21:26] Error en: DELETE FROM notas AS not, alumnos AS alu, profesores_alumnos_asignaturas AS mat, WHERE not.id_alumno = '4'  OR mat.id_alumno = '4' OR alu.id_alumno = '4'; 
+[18-01-2022 19:21:29] Aplicación finalizada
+[18-01-2022 19:21:34] Aplicación iniciada
+[18-01-2022 19:21:38] Consultando Alumno id: 123J
+[18-01-2022 19:22:01] Error en: DELETE FROM notas AS not, alumnos AS alu, profesores_alumnos_asignaturas AS mat, WHERE not.id_alumno = '4'  OR mat.id_alumno = '4' OR alu.id_alumno = '4'; 
+[18-01-2022 19:22:20] Aplicación finalizada
+[18-01-2022 19:22:22] Aplicación iniciada
+[18-01-2022 19:22:30] Consultando Alumno id: 123J
+[18-01-2022 19:22:39] Error en: DELETE FROM notas AS nota, alumnos AS alu, profesores_alumnos_asignaturas AS mat, WHERE nota.id_alumno = '4'  OR mat.id_alumno = '4' OR alu.id_alumno = '4'; 
+[18-01-2022 19:23:46] Aplicación finalizada
+[18-01-2022 19:23:48] Aplicación iniciada
+[18-01-2022 19:23:56] Consultando Alumno id: 123J
+[18-01-2022 19:28:29] Error en: DELETE FROM notas AS nota, alumnos AS alu, profesores_alumnos_asignaturas AS mat WHERE nota.id_alumno = '4'  OR mat.id_alumno = '4' OR alu.id_alumno = '4'; 
+[18-01-2022 19:28:31] Aplicación finalizada
+[18-01-2022 19:28:32] Aplicación iniciada
+[18-01-2022 19:28:41] Consultando Alumno id: 123J
+[18-01-2022 19:28:42] Eliminado Alumno Armando2
+[18-01-2022 19:30:28] Aplicación finalizada

@@ -8,11 +8,14 @@ package ad.ejbdinstituto.DAO;
 import ad.ejbdinstituto.ConexionBD;
 import ad.ejbdinstituto.EstructuraBD;
 import ad.ejbdinstituto.Exceptions.InvalidDataException;
+import ad.ejbdinstituto.Exceptions.NoIdException;
 import ad.ejbdinstituto.model.Alumno;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +25,7 @@ public class AlumnoDaoImp implements ICrudExtended<Alumno>, IValidateSql {
 
     @Override
     public boolean create(Alumno alumno) {
-        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_ALUMNOS + "(cod_alumno, nombre) VALUES ('" + alumno.getCodigo() + "','" + alumno.getNombre() + "')";
+        String sql = "INSERT INTO " + EstructuraBD.DB_TABLE_ALUMNOS + "(cod_alumno, nombre) VALUES ('" + validate(alumno.getCodigo()) + "','" + validate(alumno.getNombre()) + "')";
         return ConexionBD.executeSql(sql, "Creado Alumno " + alumno.getNombre());
     }
 
@@ -67,15 +70,27 @@ public class AlumnoDaoImp implements ICrudExtended<Alumno>, IValidateSql {
     @Override
     public boolean update(Alumno alumno) {
         boolean resultado = false;
-        String sql = "UPDATE " + EstructuraBD.DB_TABLE_ALUMNOS + " SET nombre ='"+ validate(alumno.getNombre()) +"' WHERE cod_alumno = '" + alumno.getCodigo() + "'";
+        String sql = "UPDATE " + EstructuraBD.DB_TABLE_ALUMNOS + " SET nombre ='" + validate(alumno.getNombre()) + "' WHERE cod_alumno = '" + validate(alumno.getCodigo()) + "'";
         return ConexionBD.executeSql(sql, "Modificado Alumno " + alumno.getNombre());
     }
 
     @Override
     public boolean delete(Alumno alumno) {
         boolean resultado = false;
-        String sql = "DELETE FROM " + EstructuraBD.DB_TABLE_ALUMNOS + " WHERE cod_alumno = '" + alumno.getCodigo() + "'";
-        return ConexionBD.executeSql(sql, "Eliminado Alumno " + alumno.getNombre());
+        String sql;
+        try {
+            sql = "DELETE nota, alu, mat "
+                    + "FROM " + EstructuraBD.DB_TABLE_NOTAS + "  nota "
+                    + "JOIN " + EstructuraBD.DB_TABLE_ALUMNOS + " alu ON alu.id_alumno = '" + alumno.getId() + "' "
+                    + "JOIN " + EstructuraBD.DB_TABLE_MATRICULAS + " mat ON mat.id_alumno = '" + alumno.getId() + "' "
+                    + "WHERE nota.id_alumno = '" + alumno.getId() + "'  ";
+            resultado = ConexionBD.executeSql(sql, "Eliminado Alumno " + alumno.getNombre());
+//            sql = "DELETE FROM " + EstructuraBD.DB_TABLE_ALUMNOS + " WHERE cod_alumno = '" + validate(alumno.getCodigo()) + "' ; ";
+//            sql = "DELETE FROM " + EstructuraBD.DB_TABLE_MATRICULAS + " WHERE id_alumno = '" + alumno.getId() + "'; ";
+        } catch (NoIdException ex) {
+            peticiones.SalidasGui.mensaje("Error, id de Alumno no Disponible");
+        }
+        return resultado;
     }
 
 }

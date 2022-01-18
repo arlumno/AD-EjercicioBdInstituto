@@ -15,13 +15,13 @@ import java.util.List;
  *
  * @author Ar
  */
-public class MatriculaDaoImp implements ICrudExtended<Matricula>{
+public class MatriculaDaoImp implements ICrudExtended<Matricula>, IValidateSql{
 
     @Override
     public boolean create(Matricula matricula){
         String sql;
         try {
-            sql = "INSERT INTO " + EstructuraBD.DB_TABLE_MATRICULAS + "(id_alumno, id_asignatura, dni_profesor) VALUES ('" + matricula.getAlumno().getId() + "','" + matricula.getAsignatura().getId()+ "','" + matricula.getProfesor().getDni()+ "')";
+            sql = "INSERT INTO " + EstructuraBD.DB_TABLE_MATRICULAS + "(id_alumno, id_asignatura, dni_profesor) VALUES ('" + matricula.getAlumno().getId() + "','" + matricula.getAsignatura().getId()+ "','" + validate(matricula.getProfesor().getDni())+ "')";
             return ConexionBD.executeSql(sql, "Creada Matricula "+ matricula.getAsignatura().getCodigo() + " - "+ matricula.getAlumno().getNombre());
         } catch (NoIdException ex) {
             return false;

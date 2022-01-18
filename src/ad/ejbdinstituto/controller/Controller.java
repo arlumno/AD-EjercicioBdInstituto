@@ -105,7 +105,7 @@ public class Controller {
 
     //NOTAS    
     public static boolean crearNota(Nota nota) {
-        //TODO validar que datos requeridos existan (id).
+        
         return (new NotaDaoImp()).create(nota);
     }
 
@@ -128,13 +128,11 @@ public class Controller {
     }
 
     public static boolean modificarNota(Nota nota) {
-        //TODO validar que datos requeridos existan (id).
         return (new NotaDaoImp()).update(nota);
     }
 
     //MATRICULA
     public static boolean altaMatricula(Matricula matricula) {
-        //TODO validar que datos requeridos existan (id).
         return (new MatriculaDaoImp()).create(matricula);
 
     }

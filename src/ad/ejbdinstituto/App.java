@@ -60,12 +60,12 @@ public class App {
         menu.addLabel("Bajas");
         menu.addOpcion("Eliminar Profesor", ()-> { accionesApp.borrarProfesor();});
         menu.addOpcion("Eliminar Alumno", ()-> { accionesApp.borrarAlumno();});
-        //TODO borrar en cascada (o no) profesor y alumno (notas asignaturas etc..)
+        
         
         
         menu.addLabel("Modificaciones");
         menu.addOpcion("Nombre Alumno", ()-> { accionesApp.modificarNombreAlumno();});
-        menu.addOpcion("Nota Alumno", ()-> { accionesApp.modificarNota();}); //TODO arreglar.
+        menu.addOpcion("Nota Alumno", ()-> { accionesApp.modificarNota();}); 
         
         
         menu.addLabel("Consultar y Listar");        

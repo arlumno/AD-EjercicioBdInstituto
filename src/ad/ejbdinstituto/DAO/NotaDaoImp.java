@@ -46,7 +46,7 @@ public class NotaDaoImp implements ICrudNota, IValidateSql {
                     + " FROM " + EstructuraBD.DB_TABLE_NOTAS + " AS n"
                     + " LEFT JOIN " +  EstructuraBD.DB_TABLE_ASIGNATURAS + " AS asi ON " + " asi.id_asignatura = n.id_asignatura"
                     + " LEFT JOIN " +  EstructuraBD.DB_TABLE_ALUMNOS + " AS al ON " + " al.id_alumno = n.id_alumno"
-                    + " WHERE n.id_asignatura = '" + idAsignatura + "' and n.id_alumno = '" + idAlumno + "' and n.fecha = '" + fecha + "'";
+                    + " WHERE n.id_asignatura = '" + idAsignatura + "' and n.id_alumno = '" + idAlumno + "' and n.fecha = '" + validate(fecha) + "'";
             rs = ConexionBD.executeQuerySql(sql, "Consultando Nota de : " + idAlumno + " - " + idAsignatura + " - " + fecha);
             if (rs != null && rs.next()) {
                 String codAsignatura = rs.getString(1);

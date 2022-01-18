@@ -107,10 +107,9 @@ public class AccionesApp {
             listadoAlumnos.append("\n" + alumno.toString() + "\n");
             notasAlumno = Controller.obtenerNotasAlumno(alumno);
             for (Nota nota : notasAlumno) {
-                listadoAlumnos.append("|-->" + nota.toString() + "\n");                
+                listadoAlumnos.append("|-->" + nota.toString() + "\n");
             }
-            
-           
+
         }
         peticiones.SalidasGui.bloqueTexto("Alumnos", listadoAlumnos.toString());
     }
@@ -165,25 +164,24 @@ public class AccionesApp {
             error = false;
             try {
                 dni = peticiones.EntradasGui.pedirString(PEDIR_DNI_PROFESOR, Profesor.MAX_SIZE_DNI, Profesor.MIN_SIZE_DNI, false);
-                if (Controller.obtenerProfesor(dni) == null) {
-
-                    if (dni != null) {
+                if (dni != null) {
+                    if (Controller.obtenerProfesor(dni) == null) {
                         nombre = peticiones.EntradasGui.pedirString("Indica el nombre del Profesor", Profesor.MAX_SIZE_NOMBRE, Profesor.MIN_SIZE_NOMBRE, false);
                         if (nombre != null) {
                             titulacion = peticiones.EntradasGui.pedirString("Indica la titulación del Profesor. Max. " + Profesor.MAX_SIZE_TITULACION + " caracteres.", Profesor.MAX_SIZE_TITULACION, Profesor.MIN_SIZE_TITULACION, false);
+                            if (titulacion != null) {
+                                Profesor profesor = new Profesor(dni, nombre, titulacion);
+                                if (Controller.crearProfesor(profesor)) {
+                                    peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
+                                } else {
+                                    peticiones.SalidasGui.mensaje("Error al realizar la Operación");
+                                    error = true;
+                                }
+                            }
                         }
+                    } else {
+                        peticiones.SalidasGui.mensaje("Error al crear el profesor. El DNI ya está registrado");
                     }
-                    if (nombre != null && dni != null && titulacion != null) {
-                        Profesor profesor = new Profesor(dni, nombre, titulacion);
-                        if (Controller.crearProfesor(profesor)) {
-                            peticiones.SalidasGui.mensaje("Operación realizada con Éxito");
-                        } else {
-                            peticiones.SalidasGui.mensaje("Error al realizar la Operación");
-                            error = true;
-                        }
-                    }
-                } else {
-                    peticiones.SalidasGui.mensaje("Error al crear el profesor. El DNI ya está registrado");
                 }
             } catch (Exception e) {
                 error = true;
@@ -214,11 +212,11 @@ public class AccionesApp {
         List<Asignatura> asignaturasProfesor;
         StringBuilder listadoProfesores = new StringBuilder();
         for (Profesor profesor : profesores) {
-            listadoProfesores.append("\n" +profesor.toString() + "\n");
-            
+            listadoProfesores.append("\n" + profesor.toString() + "\n");
+
             asignaturasProfesor = Controller.obtenerAsignaturasProfesor(profesor);
             for (Asignatura asignatura : asignaturasProfesor) {
-                listadoProfesores.append("|-->" + asignatura.toString() + "\n");                
+                listadoProfesores.append("|-->" + asignatura.toString() + "\n");
             }
         }
         peticiones.SalidasGui.bloqueTexto("Profesores", listadoProfesores.toString());
@@ -266,16 +264,16 @@ public class AccionesApp {
     public void listarAsignaturas() {
         List<Asignatura> asignaturas = Controller.obtenerAsignaturas();
         List<Profesor> profesoresAsignatura;
-        
+
         StringBuilder listadoAsignaturas = new StringBuilder();
         for (Asignatura asignatura : asignaturas) {
-            listadoAsignaturas.append("\n" +asignatura.toString() + "\n");
-            
+            listadoAsignaturas.append("\n" + asignatura.toString() + "\n");
+
             profesoresAsignatura = Controller.obtenerProfesoresAsignatura(asignatura);
             for (Profesor profesor : profesoresAsignatura) {
-                listadoAsignaturas.append("|-->" + profesor.toString() + "\n");                
+                listadoAsignaturas.append("|-->" + profesor.toString() + "\n");
             }
-            
+
         }
         peticiones.SalidasGui.bloqueTexto("Asignaturas", listadoAsignaturas.toString());
     }

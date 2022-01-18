@@ -4,13 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/EstructuraBD.java</file>
-            <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/model/Nota.java</file>
-            <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/DAO/NotaDaoImp.java</file>
+            <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/DAO/ProfesorDaoImp.java</file>
             <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/AccionesApp.java</file>
             <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/DAO/AlumnoDaoImp.java</file>
+            <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/DAO/AsignaturaDaoImp.java</file>
             <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/ConexionBD.java</file>
-            <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/model/Asignatura.java</file>
-            <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/App.java</file>
             <file>file:/Z:/ArGit/AD/AD-EjercicioBdInstituto/src/ad/ejbdinstituto/controller/Controller.java</file>
         </group>
     </open-files>
